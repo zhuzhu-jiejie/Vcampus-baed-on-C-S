@@ -1,0 +1,123 @@
+/* 全局样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 分类按钮样式 */
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-padding: 12 15;
+    -fx-font-size: 14;
+    -fx-text-fill: #ecf0f1;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: #3498db;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.button:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* 搜索框样式 */
+.text-field {
+    -fx-background-color: #f0f3f5;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 10 15;
+    -fx-font-size: 14;
+    -fx-prompt-text-fill: #95a5a6;
+    -fx-border-color: transparent;
+}
+
+.text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 10, 0, 0, 0);
+}
+
+/* 商品卡片样式 */
+.product-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.product-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 4);
+    -fx-translate-y: -5;
+}
+
+.product-image {
+    -fx-background-radius: 12 12 0 0;
+    -fx-background-color: #ecf0f1;
+}
+
+.product-name {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.product-price {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+.product-original-price {
+    -fx-text-fill: #95a5a6;
+    -fx-strikethrough: true;
+    -fx-font-size: 14;
+}
+
+.product-rating {
+    -fx-text-fill: #f39c12;
+    -fx-font-weight: bold;
+}
+
+.add-cart-btn {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 8 15;
+}
+
+.add-cart-btn:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}

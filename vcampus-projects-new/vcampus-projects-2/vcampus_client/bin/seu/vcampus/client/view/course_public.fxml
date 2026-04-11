@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@../css/edu_admin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.CoursePublicController">
+   <top>
+      <VBox minHeight="200.0" prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxWidth="800.0" minHeight="100.0" prefHeight="100.0" prefWidth="800.0">
+               <children>
+                  <HBox layoutX="30.0" layoutY="30.0" prefHeight="70.0" prefWidth="740.0" styleClass="card-background">
+                     <children>
+                        <AnchorPane prefHeight="80.0" prefWidth="66.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="26.0" styleClass="my-label" text="开课老师">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxWidth="301.0" minWidth="290.0" prefHeight="80.0" prefWidth="301.0">
+                           <children>
+                              <ComboBox fx:id="courseNature" layoutX="5.0" layoutY="17.0" prefHeight="36.0" prefWidth="294.0" styleClass="combobox" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" prefHeight="80.0" prefWidth="61.0">
+                           <children>
+                              <Label layoutX="17.0" layoutY="26.0" styleClass="my-label" text="学分">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="80.0" prefWidth="312.0">
+                           <children>
+                              <ComboBox fx:id="credit" layoutX="5.0" layoutY="17.0" maxWidth="297.0" prefHeight="36.0" prefWidth="197.0" styleClass="combobox" />
+                              <Button fx:id="refresh" layoutX="222.0" layoutY="17.0" mnemonicParsing="false" onAction="#OnRefeshClick" prefHeight="36.0" prefWidth="80.0" styleClass="my-button" text="刷新" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="800.0">
+               <children>
+                  <HBox layoutX="30.0" layoutY="20.0" prefHeight="70.0" prefWidth="740.0" styleClass="card-background">
+                     <children>
+                        <AnchorPane prefHeight="80.0" prefWidth="66.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="26.0" styleClass="my-label" text="开课单位">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxWidth="301.0" minWidth="290.0" prefHeight="80.0" prefWidth="301.0">
+                           <children>
+                              <ComboBox fx:id="department" layoutX="5.0" layoutY="17.0" prefHeight="36.0" prefWidth="294.0" styleClass="combobox" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" prefHeight="80.0" prefWidth="61.0">
+                           <children>
+                              <Label layoutX="5.0" layoutY="26.0" styleClass="my-label" text="授课对象">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="80.0" prefWidth="312.0">
+                           <children>
+                              <ComboBox fx:id="studentType" layoutX="5.0" layoutY="17.0" maxWidth="297.0" prefHeight="36.0" prefWidth="297.0" styleClass="combobox" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane maxHeight="400.0" maxWidth="800.0" minHeight="400.0" minWidth="800.0" prefHeight="400.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+         	 <ScrollPane fitToHeight="true" fitToWidth="false" layoutX="30.0" layoutY="10.0" prefHeight="360.0" prefWidth="740.0" styleClass="my-scroll">
+            	<content>
+               	<TableView fx:id="courseApplied" layoutX="30.0" prefHeight="360.0" layoutY="10.0" styleClass="my-tableview">
+                 		<columns>
+                   		<TableColumn fx:id="nameColumn" prefWidth="230.0" text="课程名称" />
+                     		<TableColumn fx:id="teacherColumn" prefWidth="125.0" text="开课老师" />
+                     		<TableColumn fx:id="creditColumn" prefWidth="100.0" text="学分" />
+                     		<TableColumn fx:id="departmentColumn" prefWidth="225.0" text="开课单位" />
+                     		<TableColumn fx:id="typeColumn" prefWidth="115.0" text="授课对象" />
+                     		<TableColumn fx:id="numColumn" prefWidth="100.0" text="人数" />
+                 		</columns>
+               	</TableView>
+            </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

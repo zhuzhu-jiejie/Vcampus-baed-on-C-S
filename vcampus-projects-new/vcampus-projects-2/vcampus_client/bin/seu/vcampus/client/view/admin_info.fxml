@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@../css/admin_info.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: transparent;" fx:controller="seu.vcampus.client.controller.AdminInfoController">
+    
+    <!-- 中央内容区域（3个核心信息卡片，结构与原宿舍页面一致） -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+           <content>
+               <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: transparent;">
+                  <children>
+                      <!-- 卡片1：个人基本信息（蓝色顶栏，匹配原页面风格） -->
+                      <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                         <children>
+                             <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="个人基本信息" />
+                                </children>
+                             </HBox>
+                             
+                             <!-- 4列GridPane：标签右对齐，内容左对齐，与原页面布局一致 -->
+                             <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                                 <columnConstraints>
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                 </columnConstraints>
+                                <children>
+                                    
+                                    <!-- 第一行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="工号:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <Label fx:id="adminId" style="-fx-text-fill: #2c3e50;" text="20230001" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="姓名:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                    <Label fx:id="adminName" style="-fx-text-fill: #2c3e50;" text="张三" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                    
+                                    <!-- 第二行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="性别:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <Label fx:id="adminGender" style="-fx-text-fill: #2c3e50;" text="男" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="出生日期:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="adminBirth" style="-fx-text-fill: #2c3e50;" text="2005-01-15" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    
+                                    <!-- 第三行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="身份证号:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <Label fx:id="adminIdCard" style="-fx-text-fill: #2c3e50;" text="11010120050115XXXX" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="联系电话:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label fx:id="adminPhone" style="-fx-text-fill: #2c3e50;" text="13800138001" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    
+                                    <!-- 第四行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="邮箱:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                    <Label fx:id="adminEmail" style="-fx-text-fill: #2c3e50;" text="zhangsan@school.edu.cn" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="政治面貌:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Label fx:id="adminPolitics" style="-fx-text-fill: #2c3e50;" text="共青团员" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    
+                                     <!-- 第五行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="岗位:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                    <Label fx:id="adminPosition" style="-fx-text-fill: #2c3e50;" text="人文学院" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    
+                                    
+                                </children>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                             </GridPane>
+                         </children>
+                      </VBox> 
+                      
+                  </children>
+                   
+               </VBox>
+           </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

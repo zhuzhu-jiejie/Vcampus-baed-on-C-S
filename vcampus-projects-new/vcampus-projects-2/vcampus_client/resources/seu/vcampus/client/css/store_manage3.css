@@ -1,0 +1,185 @@
+/* FinancialReport.css - 修复版本 */
+
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 顶部标题栏样式 */
+.header {
+    -fx-background-color: linear-gradient(to right, #2c3e50, #34495e);
+    -fx-padding: 20;
+    -fx-alignment: center-left;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* 筛选工具栏样式 */
+.toolbar {
+    -fx-background-color: #34495e;
+    -fx-padding: 15;
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+}
+
+.toolbar-label {
+    -fx-text-fill: white;
+}
+
+/* 财务卡片样式 */
+.financial-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
+
+.financial-card-title {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+.financial-card-value {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* 图表容器样式 */
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 20;
+}
+
+.chart-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* 表格视图样式 */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell:filled:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:filled:hover {
+    -fx-background-color: #f5f7fa;
+}
+
+/* 筛选按钮样式 */
+.filter-button {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+    -fx-cursor: hand;
+}
+
+.filter-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+}
+
+.filter-button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* 分隔线样式 */
+.separator {
+    -fx-padding: 15 0;
+}
+
+/* 滚动面板样式 */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #f5f7fa;
+}
+
+/* 组合框样式 */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-pref-width: 120;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #2c3e50;
+}
+
+/* 日期选择器样式 */
+.date-picker {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-pref-width: 150;
+}
+
+.date-picker .text-field {
+    -fx-text-fill: #2c3e50;
+}
+
+/* 饼图样式 */
+.chart-pie-label {
+    -fx-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #95a5a6;
+    -fx-fill: #95a5a6;
+}
+
+/* 柱状图样式 */
+.chart-bar {
+    -fx-bar-fill: #3498db;
+}
+
+.chart-bar:hover {
+    -fx-bar-fill: #2980b9;
+}
+
+.axis-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}

@@ -1,0 +1,206 @@
+/* 背景容器：承载轮换背景图 */
+.background-container {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+
+/* 主登录卡片：白色浮层+阴影 */
+.main-container {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 5);
+    -fx-pref-width: 640px;
+    -fx-pref-height: 288px;
+}
+
+/* 左侧图片区域：承载背景图+校徽+艺术字 */
+.image-pane {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-pref-width: 384px;
+    -fx-pref-height: 288px;
+    -fx-background-radius: 8px 0 0 8px;
+}
+
+/* 校徽+艺术字容器：强制顶部居中（关键修改） */
+.header-content {
+    -fx-padding: 8px 0 0 0; /* 顶部仅留8px间距，贴近上边缘 */
+    -fx-alignment: TOP_CENTER; /* 垂直方向顶部对齐，水平方向居中 */
+    -fx-pref-width: 384px; /* 与左侧图片同宽，确保水平居中 */
+}
+
+/* 校徽样式：尺寸适中，突出顶部位置 */
+.school-logo {
+    -fx-fit-width: 60px;
+    -fx-fit-height: 60px;
+    -fx-preserve-ratio: true;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 3);
+}
+
+/* 艺术字“东南大学”：帅气书法风格 */
+.art-text {
+    -fx-font-family: "华文楷体", "STKaiti", "SimKai", serif; /* 书法字体 */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to bottom, #ffffff, #e6e6e6); /* 白色渐变增强辨识度 */
+    -fx-stroke: #003366; /* 深蓝色描边 */
+    -fx-stroke-width: 0.5px;
+    -fx-letter-spacing: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 1, 1);
+}
+
+/* 背景切换按钮：圆形半透 */
+.nav-button {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-text-fill: white;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-opacity: 0.7;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-opacity: 1.0;
+}
+
+/* 右侧表单容器：白色背景 */
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 0 8px 8px 0;
+    -fx-pref-width: 256px;
+    -fx-pref-height: 288px;
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+/* 表单内容：间距+居中 */
+.form-content {
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+    -fx-padding: 20px;
+    -fx-pref-width: 256px;
+}
+
+/* 标题“统一身份认证” */
+.title-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-alignment: center;
+}
+
+/* 输入容器：浅灰背景+边框 */
+.input-container {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-pref-width: 210px;
+}
+
+/* 输入框：聚焦效果 */
+.custom-text-field {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 6px 10px;
+    -fx-text-fill: #212529;
+    -fx-prompt-text-fill: #6c757d;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 32px;
+}
+.custom-text-field:focused {
+    -fx-background-color: #f8fff9;
+    -fx-border-color: #28a745;
+}
+
+/* 登录按钮：绿色 hover 加深 */
+.login-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 32px;
+    -fx-padding: 0;
+}
+.login-button:hover {
+    -fx-background-color: #218838;
+}
+
+/* 底部选项：记住密码+忘记密码 */
+.bottom-options {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+    -fx-pref-width: 210px;
+}
+
+/* 复选框：小字体 */
+.custom-checkbox {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 11px;
+}
+.custom-checkbox .box {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+/* 超链接：hover 下划线 */
+.custom-hyperlink {
+    -fx-text-fill: #1e7e34;
+    -fx-underline: false;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+.custom-hyperlink:hover {
+    -fx-text-fill: #145a32;
+    -fx-underline: true;
+}
+
+/* 关闭按钮：右上角小按钮（修复后） */
+.close-button {
+	-fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-background-color: transparent; /* 初始透明 */
+    -fx-text-fill: #6c757d; /* 默认灰色文字 */
+    -fx-font-size: 16px; /* 叉号大小适中 */
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    /* 固定尺寸：确保按钮可见，不会被压缩 */
+    -fx-pref-width: 24px;
+    -fx-pref-height: 24px;
+    -fx-alignment: center; /* 叉号居中 */
+    -fx-background-radius: 4px; /* 轻微圆角，和登录按钮风格统一 */
+    /* 移除错误的translate-x，改用StackPane的TOP_RIGHT对齐 */
+}
+/* 悬停效果：红色背景+白色文字，和现有交互风格一致 */
+.close-button:hover {
+	-fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-background-color: #e74c3c; /* 红色，警示色符合关闭逻辑 */
+    -fx-text-fill: white;
+    /* 加轻微阴影，提升视觉层次 */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}

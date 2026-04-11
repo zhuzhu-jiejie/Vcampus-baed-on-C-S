@@ -1,0 +1,156 @@
+/* 全局样式：不变 */
+* {
+    -fx-font-family: "Microsoft YaHei", "SimHei", sans-serif;
+}
+/* 标题栏：添加渐变背景 */
+.title-bar {
+    -fx-background-color: linear-gradient(to right, #116ecd, #0d5eb3);
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+/* V-Campus按钮：不变 */
+.vcampus-title {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 6px 14px;
+    -fx-cursor: hand;
+    -fx-border: none;
+    -fx-background-radius: 20px;
+}
+.vcampus-title:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+/* 窗口控制按钮：不变 */
+.minimize-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 6px 12px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.5s ease;
+}
+.minimize-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+.minimize-icon {
+    -fx-fill: white;
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+}
+.close-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 6px 12px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.5s ease;
+}
+.close-button:hover {
+    -fx-background-color: #e53935;
+}
+.close-icon {
+    -fx-fill: white;
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+}
+/* 左侧StackPane：无额外样式，仅作为容器 */
+.left-stack {
+    -fx-background-color: #fdfdff; /* 与侧边栏背景一致，避免空白漏色 */
+}
+/* 上层：应用侧边栏（覆盖用，背景不透明以完全覆盖下层） */
+.app-sidebar {
+    -fx-background-color: #fdfdff; /* 不透明背景，覆盖功能侧边栏 */
+    -fx-padding: 2px 0;
+    -fx-spacing: 3px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1px 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2); /* 加阴影突出覆盖效果 */
+}
+/* 应用侧边栏按钮样式（仅修改这里：调大按钮） */
+.app-sidebar .button {
+    -fx-background-color: #fdfdff;
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px; /* 比原来大1px */
+    -fx-padding: 12px 15px; /* 比原来增加内边距，按钮更大 */
+    -fx-alignment: center-left;
+    -fx-pref-width: 150;
+    -fx-margin: 0;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+    -fx-background-radius: 0;
+}
+.app-sidebar .button:hover {
+    -fx-background-color: #e9f4fe;
+}
+.app-sidebar .button.selected {
+    -fx-text-fill: #116ecd;
+    -fx-background-color: #e9f4fe;
+}
+/* 图标容器样式（新增：控制图标位置和间距） */
+.app-icon {
+    -fx-pref-width: 16px;
+    -fx-pref-height: 16px;
+    -fx-margin-right: 10px; /* 图标与文字间距 */
+}
+/* 下层：功能侧边栏（不变，确保与应用侧边栏宽度一致） */
+.sidebar {
+    -fx-background-color: #fdfdff;
+    -fx-padding: 2px 0;
+    -fx-spacing: 3px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1px 0 0;
+}
+.sidebar .button {
+    -fx-background-color: #fdfdff;
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+    -fx-padding: 10px 12px;
+    -fx-alignment: center-left;
+    -fx-pref-width: 150;
+    -fx-margin: 0;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+    -fx-background-radius: 0;
+}
+.sidebar .button:hover {
+    -fx-background-color: #e9f4fe;
+}
+.sidebar .button.selected {
+    -fx-text-fill: #116ecd;
+    -fx-border-width: 0 0 0 3px;
+    -fx-border-color: #116ecd;
+}
+/* 中间内容区：不变 */
+.content-area {
+    -fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);
+}
+.password-field {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+}
+
+.password-field:focused {
+    -fx-border-color: #116ecd;
+    -fx-background-color: #fff;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+}
+
+.grid-pane {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_exchange.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentExchangeController">
+
+    <!-- 中央内容区域 - 修复滚动问题 -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #f5f7fa;" vbarPolicy="ALWAYS">
+            <VBox spacing="20" style="-fx-padding: 30;">
+                <!-- 退舍申请卡片 -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox style="-fx-background-color: #e74c3c; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="退舍申请" />
+                    </HBox>
+                    
+                    <VBox spacing="15" style="-fx-padding: 20;">
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="退舍原因:" />
+                        <TextArea fx:id="returnReason" promptText="请输入退舍原因..." style="-fx-pref-height: 120;" />
+                        <Button fx:id="returnApplyBtn" onAction="#handleReturnApply" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="申请退舍" />
+                    </VBox>
+                </VBox>
+                
+                <!-- 换舍申请卡片 -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="换舍申请" />
+                    </HBox>
+                    
+                    <VBox spacing="15" style="-fx-padding: 20;">
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="换舍原因:" />
+                        <TextArea fx:id="exchangeReason" promptText="请输入换舍原因..." style="-fx-pref-height: 120;" />
+                        <Button fx:id="exchangeApplyBtn" onAction="#handleExchangeApply" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="申请换舍" />
+                    </VBox>
+                </VBox>
+                
+                <!-- 添加额外内容以确保滚动 -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox style="-fx-background-color: #27ae60; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="申请须知" />
+                    </HBox>
+                    
+                    <VBox spacing="10" style="-fx-padding: 20;">
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="1. 退舍申请需提前一周提交，经管理员审核后方可生效。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="2. 换舍申请需双方宿舍长同意，并经管理员批准。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="3. 申请提交后，请耐心等待审核结果，通常需要1-3个工作日。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="4. 如有紧急情况，请联系宿舍管理员办公室。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="5. 退舍时请确保个人物品已全部搬离，宿舍钥匙已归还。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="6. 换舍成功后，请在规定时间内完成搬迁。" />
+                        <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="7. 如有任何疑问，请咨询宿舍管理员。" />
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

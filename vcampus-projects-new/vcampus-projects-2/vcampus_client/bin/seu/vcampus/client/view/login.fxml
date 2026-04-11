@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+            prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.LoginController" 
+            stylesheets="@../css/login.css">
+   <children>
+      <!-- 背景轮换容器（模糊处理） -->
+      <StackPane fx:id="backgroundContainer" styleClass="background-container" 
+                 AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" 
+                 AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <effect>
+            <BoxBlur width="5" height="5" iterations="3" />
+         </effect>
+      </StackPane>
+      
+      <!-- 主登录卡片 -->
+      <HBox fx:id="mainContainer" alignment="CENTER_LEFT" styleClass="main-container" 
+            spacing="0">
+         <children>
+            <!-- 左侧图片区域（校徽 + 艺术字 + 切换按钮） -->
+            <StackPane fx:id="leftImagePane" styleClass="image-pane" HBox.hgrow="NEVER">
+               <!-- 校徽 + 艺术字：强制顶部居中（关键修改） -->
+               <VBox alignment="TOP_CENTER" spacing="8.0" styleClass="header-content">
+                  <!-- 校徽图片（路径需与实际一致） -->
+                  <ImageView fx:id="schoolLogo" styleClass="school-logo">
+                     <image>
+                        <Image url="@../images/xiaohui.png" />
+                     </image>
+                  </ImageView>
+                  <!-- 艺术字“东南大学” -->
+                  <Label text="东南大学" styleClass="art-text">
+                     <effect>
+                        <DropShadow color="#00000080" radius="3" offsetX="1" offsetY="1" />
+                     </effect>
+                  </Label>
+               </VBox>
+               
+               <!-- 左切换按钮 -->
+               <Button fx:id="prevBtn" onAction="#onPrevClick" styleClass="nav-button" text="&lt;">
+                  <StackPane.alignment>
+                     <javafx.geometry.Pos fx:constant="CENTER_LEFT" />
+                  </StackPane.alignment>
+               </Button>
+               <!-- 右切换按钮 -->
+               <Button fx:id="nextBtn" onAction="#onNextClick" styleClass="nav-button" text="&gt;">
+                  <StackPane.alignment>
+                     <javafx.geometry.Pos fx:constant="CENTER_RIGHT" />
+                  </StackPane.alignment>
+               </Button>
+            </StackPane>
+            
+           <!-- 右侧表单区域：改用StackPane，支持绝对定位（关键修改） -->
+			<StackPane fx:id="formContainer" styleClass="form-container" HBox.hgrow="NEVER">
+   				<children>
+      				
+      
+      				<!-- 2. 表单内容容器：放在StackPane中，居中显示，不会覆盖按钮 -->
+      				<VBox styleClass="form-content" >
+         				<Label styleClass="title-label" text="统一身份认证" textAlignment="CENTER">
+            				<VBox.margin>
+               					<Insets bottom="10.0" />
+            				</VBox.margin>
+         				</Label>
+         
+         				<VBox alignment="CENTER" spacing="10.0" styleClass="input-container">
+            				<TextField fx:id="userIDField" promptText="用户名" styleClass="custom-text-field">
+               					<font><Font size="12.0" /></font>
+            				</TextField>
+            				<PasswordField fx:id="passwordField" promptText="密码" styleClass="custom-text-field">
+               					<font><Font size="12.0" /></font>
+            				</PasswordField>
+            				<Button fx:id="loginBtn" mnemonicParsing="false" onAction="#onLoginClick" 
+                    					styleClass="login-button" text="登录">
+               					<font><Font size="13.0" /></font>
+               					<VBox.margin><Insets top="5.0" /></VBox.margin>
+            				</Button>
+         				</VBox>
+         
+         				<HBox alignment="CENTER" styleClass="bottom-options">
+            				<children>
+               					<CheckBox fx:id="rememberPasswordChkBox" mnemonicParsing="false" 
+                         				styleClass="custom-checkbox" text="记住密码" />
+               					<Hyperlink fx:id="changePasswordHyplink" onAction="#onChangePasswordClick" 
+                          					styleClass="custom-hyperlink" text="忘记密码?" />
+            				</children>
+           					 <VBox.margin><Insets top="5.0" /></VBox.margin>
+         				</HBox>
+      				</VBox>
+      				
+      				<!-- 1. 关闭按钮：放在最下面，层级最高，不会被覆盖 -->
+      				<Button fx:id="closeBtn" onAction="#onCloseClick" styleClass="close-button" text="×">
+         				<!-- 固定在右上角：StackPane的alignment属性优先级最高 -->
+         				<StackPane.alignment>
+            				<javafx.geometry.Pos fx:constant="TOP_RIGHT" />
+        	 			</StackPane.alignment>
+         				<!-- 父容器内边距：确保按钮在formContainer内，不会超出 -->
+   						<StackPane.margin>
+        					<Insets top="5.0" right="5.0" bottom="0.0" left="0.0" />
+    					</StackPane.margin>
+    					<!-- 按钮自身内边距：确保叉号居中，可点击区域完整 -->
+    					<padding>
+        					<Insets top="0.0" right="0.0" bottom="0.0" left="0.0" />
+    					</padding>
+      				</Button>
+   				</children>
+			</StackPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
+    

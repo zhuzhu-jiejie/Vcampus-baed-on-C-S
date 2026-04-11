@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_status.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.AdminRewardPunishment">
+   <content>
+   	  <!-- 最外层的VBox容器 -->
+      <VBox styleClass="background">
+         <children>
+           
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="学生列表" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+            		<columnConstraints>
+                		<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                		<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                		<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                		<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+            		</columnConstraints>
+            		<rowConstraints>
+                		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            			<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            			<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            		</rowConstraints>
+            		<children>
+                		<Label styleClass="info-key-text" text="按姓名：" GridPane.columnIndex="2" />
+                		<Label styleClass="info-key-text" text="按学号：" />
+            			<Label styleClass="info-key-text" text="按学院：" GridPane.rowIndex="1" />
+            			<Label styleClass="info-key-text" text="按班级：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            			<Label styleClass="info-key-text" text="按就读年级：" GridPane.rowIndex="2" />
+            			<TextField fx:id="byName" styleClass="my-textarea" GridPane.columnIndex="3" />
+            			<ComboBox fx:id="byCollege" styleClass="my-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="byStudentId" styleClass="my-textarea" GridPane.columnIndex="1" />
+                        <Label styleClass="info-key-text" text="按专业：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="byMajor" styleClass="my-combo-box" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="byGrade" styleClass="my-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="byClassName" styleClass="my-combo-box" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+           			</children>
+        		  </GridPane>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="50.0" styleClass="card-bottom-bar">
+                     <children>
+                        <Button fx:id="retrieve" mnemonicParsing="false" onAction="#handleRetrieve" styleClass="my-button" text="检索" />
+                        <Button fx:id="conditionClearButton" mnemonicParsing="false" onAction="#handleConditionClear" styleClass="my-button" text="清空条件" />
+                     </children>
+                  </HBox>
+                  
+                                    <!-- 加载提示 -->
+                  <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+                     <children>
+                        <!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                        <Label fx:id="loadingStudentLabel" text="加载中..." visible="false">
+                           <graphic>
+                              <ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                        <Label fx:id="errorStudentLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+                     </children>
+                  </HBox>
+                  
+                  
+                  <TableView fx:id="studentList" styleClass="my-table-view">
+                    <columns>
+                      <TableColumn fx:id="studentIdCol" prefWidth="110.0" text="学号" />
+                      <TableColumn fx:id="nameCol" prefWidth="124.0" text="姓名" />
+                        <TableColumn fx:id="collegeCol" prefWidth="138.0" text="学院" />
+                        <TableColumn fx:id="majorCol" prefWidth="122.0" text="专业" />
+                        <TableColumn fx:id="gradeCol" prefWidth="104.0" text="就读年级" />
+                        <TableColumn fx:id="classNameCol" prefWidth="109.0" text="班级" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            
+			<VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="奖罚列表" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+            		<columnConstraints>
+                		<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                		<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                		<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                		<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+            		</columnConstraints>
+            		<rowConstraints>
+            			<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            			<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            		</rowConstraints>
+            		<children>
+            			<Label styleClass="info-key-text" text="姓名：" />
+            			<Label styleClass="info-key-text" text="奖罚类型：" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="学号：" GridPane.columnIndex="2" />
+                        <TextField fx:id="name" styleClass="my-textarea" GridPane.columnIndex="1" />
+                        <TextField fx:id="studentId" styleClass="my-textarea" GridPane.columnIndex="3" />
+                        <TextField fx:id="title" styleClass="my-textarea" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="奖罚名称：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="原因：" GridPane.rowIndex="2" />
+                        <TextField fx:id="reason" styleClass="my-textarea" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="type" styleClass="my-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="颁发单位：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="awardingOrganization" styleClass="my-combo-box" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            		</children>
+        		</GridPane>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="50.0" styleClass="card-bottom-bar">
+                     <children>
+                        <Button fx:id="deselect" layoutX="233.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleDeselect" styleClass="my-button" text="取消选中" />
+                        <Button fx:id="clear" mnemonicParsing="false" onAction="#handleClear" styleClass="my-button" text="清空" />
+                        <Button fx:id="add" layoutX="563.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleAdd" styleClass="my-button" text="添加" />
+                        <Button fx:id="revoke" layoutX="563.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleRevoke" styleClass="my-button" text="撤销" />
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+                     <children>
+                        <!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                        <Label fx:id="loadingRewardPunishmentLabel" text="加载中..." visible="false">
+                           <graphic>
+                              <ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                        <Label fx:id="errorRewardPunishmentLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="rewardPunishmentList" styleClass="my-table-view">
+                    <columns>
+                      <TableColumn fx:id="typeCol" text="类型" />
+                      <TableColumn fx:id="titleCol" text="名称" />
+                      <TableColumn fx:id="reasonCol" prefWidth="223.0" text="原因" />
+                      <TableColumn fx:id="awardingOrganizationCol" prefWidth="107.0" text="颁发单位" />
+                      <TableColumn fx:id="effectiveDateCol" prefWidth="130.0" text="生效日期" />
+                      <TableColumn fx:id="statusCol" prefWidth="87.0" text="状态" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            
+         </children></VBox>
+   </content>
+</ScrollPane>

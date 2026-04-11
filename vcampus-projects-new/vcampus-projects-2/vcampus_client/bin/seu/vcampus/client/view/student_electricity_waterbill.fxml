@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_electricity_waterbill.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentElectricityWaterBillController">
+       
+    <!-- 中央内容区域 -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #f5f7fa;">
+            <VBox spacing="20" style="-fx-padding: 30;">
+                <!-- 当前费用信息卡片 -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="当前费用信息" />
+                    </HBox>
+                    
+                    <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                            <ColumnConstraints halignment="LEFT" minWidth="200" />
+                            <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                            <ColumnConstraints halignment="LEFT" minWidth="200" />
+                        </columnConstraints>
+                        
+                        <!-- 第一行 -->
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿舍楼:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="buildingLabel" style="-fx-text-fill: #2c3e50;" text="A栋" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="房间号:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Label fx:id="roomLabel" style="-fx-text-fill: #2c3e50;" text="101" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                        
+                        <!-- 第二行 -->
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="当前月份:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="monthLabel" style="-fx-text-fill: #2c3e50;" text="2023-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="缴费状态:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="statusLabel" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;" text="未缴费" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        
+                        <!-- 第三行 -->
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="电费(元):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="electricityLabel" style="-fx-text-fill: #2c3e50;" text="125.50" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="水费(元):" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="waterLabel" style="-fx-text-fill: #2c3e50;" text="45.80" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        
+                        <!-- 第四行 -->
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="总计(元):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="totalLabel" style="-fx-text-fill: #e74c3c; -fx-font-size: 18px; -fx-font-weight: bold;" text="171.30" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        
+                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="缴费截止:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="deadlineLabel" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;" text="2023-10-25" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+                </VBox>
+                
+                <!-- 历史缴费记录卡片 -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox style="-fx-background-color: #2ecc71; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="历史缴费记录" />
+                    </HBox>
+                    
+                    <TableView fx:id="historyTable" style="-fx-background-radius: 0 0 10 10;">
+                        <columns>
+                            <TableColumn prefWidth="100" text="月份" />
+                            <TableColumn prefWidth="80" text="电费(元)" />
+                            <TableColumn prefWidth="80" text="水费(元)" />
+                            <TableColumn prefWidth="80" text="总计(元)" />
+                            <TableColumn prefWidth="100" text="缴费状态" />
+                            <TableColumn prefWidth="120" text="缴费日期" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+    <!-- 底部操作按钮 -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="15" style="-fx-padding: 15;">
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="刷新数据" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,146 @@
+/* 继承原有样式并添加新样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 表格样式 */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell {
+    -fx-border-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-background-color: white;
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 5 10 5;
+}
+
+/* 表头样式 */
+.column-header {
+    -fx-background-color: #ecf0f1;
+    -fx-size: 40px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 0 1 0;
+}
+
+.column-header-background {
+    -fx-background-color: transparent;
+}
+
+.column-header .label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* 按钮样式 */
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-background-radius: 5;
+    -fx-pref-width: 100;
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+}
+
+/* 筛选面板样式 */
+.filter-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+/* 输入框样式 */
+.text-field, .combo-box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #ddd;
+    -fx-padding: 5;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #3498db;
+}
+
+/* 标签样式 */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* 状态标签样式 */
+.status-paid {
+    -fx-text-fill: #2ecc71;
+    -fx-font-weight: bold;
+}
+
+.status-unpaid {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+
+.status-reminded {
+    -fx-text-fill: #f39c12;
+    -fx-font-weight: bold;
+}
+
+/* 金额标签样式 */
+.amount-large {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* 操作按钮区域样式 */
+.action-buttons {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+/* 催缴按钮特殊样式 */
+.button-remind {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+}
+
+.button-remind:hover {
+    -fx-background-color: #e67e22;
+}
+
+/* 卡片标题样式 */
+.card-title {
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 15;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.card-title-blue {
+    -fx-background-color: #3498db;
+}
+
+.card-title-green {
+    -fx-background-color: #2ecc71;
+}
+
+.card-title-orange {
+    -fx-background-color: #f39c12;
+}

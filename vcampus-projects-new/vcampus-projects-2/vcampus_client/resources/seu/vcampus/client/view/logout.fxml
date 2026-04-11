@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="300" prefWidth="500" styleClass="logout-root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.LogoutController" stylesheets="@../css/logout.css">
+    <center>
+        <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
+            <!-- 确认卡片 -->
+            <VBox fx:id="confirmationCard" styleClass="confirmation-card">
+                <children>
+                    <HBox styleClass="confirmation-header">
+                        <children>
+                            <Label styleClass="confirmation-title" text="确认登出" />
+                        </children>
+                    </HBox>
+                    
+                    <VBox styleClass="confirmation-content" alignment="CENTER">
+                        <Label styleClass="confirmation-text" text="您确定要退出系统吗？" />
+                        
+                        <HBox styleClass="button-container" alignment="CENTER">
+                            <Button fx:id="confirmButton" text="确认" styleClass="confirm-button" />
+                            <Button fx:id="cancelButton" text="取消" styleClass="cancel-button" />
+                        </HBox>
+                    </VBox>
+                </children>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

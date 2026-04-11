@@ -1,0 +1,124 @@
+/* 全局样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 表格样式 */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell {
+    -fx-border-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-background-color: white;
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 5 10 5;
+}
+
+/* 表头样式 */
+.column-header {
+    -fx-background-color: #ecf0f1;
+    -fx-size: 40px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 0 1 0;
+}
+
+.column-header-background {
+    -fx-background-color: transparent;
+}
+
+.column-header .label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* 按钮样式 */
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-background-radius: 5;
+    -fx-pref-width: 100;
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+}
+/* 图表样式 */
+.chart {
+    -fx-padding: 10px;
+}
+
+.chart-content {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #34495e;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #3498db;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #3498db, white;
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}
+
+/* 标签样式 */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* 背景图样式 - 取消注释并修改路径即可使用 */
+/*
+.root {
+    -fx-background-image: url("background.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+*/

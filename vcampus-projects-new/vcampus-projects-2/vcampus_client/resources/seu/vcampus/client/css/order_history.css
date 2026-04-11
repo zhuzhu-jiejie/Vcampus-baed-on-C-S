@@ -1,0 +1,179 @@
+/* 与商品浏览界面一致的全局样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 筛选按钮样式 */
+.filter-button {
+    -fx-cursor: hand;
+    -fx-background-radius: 20;
+    -fx-padding: 8 15;
+    -fx-font-size: 12;
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.filter-button:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* 订单卡片样式 */
+.order-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+.order-header {
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 10 0;
+}
+
+.order-id {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.order-date {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14;
+}
+
+.order-status {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+}
+
+.status-pending {
+    -fx-background-color: #f39c12;
+}
+
+.status-paid {
+    -fx-background-color: #3498db;
+}
+
+.status-shipped {
+    -fx-background-color: #9b59b6;
+}
+
+.status-completed {
+    -fx-background-color: #2ecc71;
+}
+
+.status-cancelled {
+    -fx-background-color: #e74c3c;
+}
+
+.order-item {
+    -fx-padding: 10 0;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.order-item:last-child {
+    -fx-border-width: 0;
+}
+
+.item-image {
+    -fx-background-radius: 8;
+    -fx-background-color: #ecf0f1;
+}
+
+.item-name {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.item-price {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+
+.item-quantity {
+    -fx-text-fill: #7f8c8d;
+}
+
+.order-footer {
+    -fx-padding: 10 0 0 0;
+}
+
+.order-total {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.order-action-btn {
+    -fx-background-radius: 20;
+    -fx-padding: 5 15;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.btn-primary {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #2980b9;
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7f8c8d;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #f5f7fa;
+}
+
+.empty-orders {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 40;
+    -fx-alignment: CENTER;
+}
+
+.empty-orders-label {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 18;
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}

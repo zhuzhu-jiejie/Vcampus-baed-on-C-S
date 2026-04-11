@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane stylesheets="@../css/admin_exchange.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="seu.vcampus.client.controller.AdminExchangeController">
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <!-- 退舍申请选项卡 -->
+            <Tab text="退舍申请">
+                <ScrollPane fitToWidth="true" style="-fx-background: #f5f7fa;">
+                    <VBox spacing="20" style="-fx-padding: 20;">
+                        <!-- 申请列表 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <HBox style="-fx-background-color: #e74c3c; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="退舍申请列表" />
+                            </HBox>
+                            
+                            <TableView fx:id="returnTable" style="-fx-padding: 10;">
+                                <columns>
+                                    <!-- 退舍申请表格列 -->
+									<TableColumn fx:id="returnApplicantCol" text="申请人" prefWidth="100">
+ 										<cellValueFactory><PropertyValueFactory property="applicantName" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="returnRoomCol" text="宿舍号" prefWidth="80">
+   										<cellValueFactory><PropertyValueFactory property="roomInfo" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="returnTimeCol" text="申请时间" prefWidth="120">
+									    <cellValueFactory><PropertyValueFactory property="applyTimeFormatted" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="returnStatusCol" text="状态" prefWidth="80">
+									    <cellValueFactory><PropertyValueFactory property="statusText" /></cellValueFactory>
+									</TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                        
+                        <!-- 申请详情 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="申请详情" />
+                            </HBox>
+                            
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <HBox spacing="20">
+                                    <VBox spacing="5" style="-fx-pref-width: 300;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="申请人:" />
+                                        <Label fx:id="returnApplicant" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                    <VBox spacing="5" style="-fx-pref-width: 200;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿舍号:" />
+                                        <Label fx:id="returnRoom" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                    <VBox spacing="5" style="-fx-pref-width: 200;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="申请时间:" />
+                                        <Label fx:id="returnTime" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                </HBox>
+                                
+                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="退舍原因:" />
+                                <TextArea fx:id="returnDetail" editable="false" style="-fx-pref-height: 100;" />
+                                
+                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="处理意见:" />
+                                <TextArea fx:id="returnFeedback" promptText="请输入处理意见..." style="-fx-pref-height: 100;" />
+                                
+                                <HBox spacing="20">
+                                    <Button fx:id="returnApproveBtn" onAction="#handleReturnApprove" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="批准" />
+                                    <Button fx:id="returnRejectBtn" onAction="#handleReturnReject" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="拒绝" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+            
+            <!-- 换舍申请选项卡 -->
+            <Tab text="换舍申请">
+                <ScrollPane fitToWidth="true" style="-fx-background: #f5f7fa;">
+                    <VBox spacing="20" style="-fx-padding: 20;">
+                        <!-- 申请列表 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="换舍申请列表" />
+                            </HBox>
+                            
+                            <TableView fx:id="exchangeTable" style="-fx-padding: 10;">
+                                <columns>
+                                    <!-- 换舍申请表格列 -->
+									<TableColumn fx:id="exchangeApplicantCol" text="申请人" prefWidth="100">
+   										<cellValueFactory><PropertyValueFactory property="applicantName" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="exchangeOriginalRoomCol" text="原宿舍" prefWidth="120">
+									    <cellValueFactory><PropertyValueFactory property="roomInfo" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="exchangeTimeCol" text="申请时间" prefWidth="120">
+ 										<cellValueFactory><PropertyValueFactory property="applyTimeFormatted" /></cellValueFactory>
+									</TableColumn>
+									<TableColumn fx:id="exchangeStatusCol" text="状态" prefWidth="80">
+									    <cellValueFactory><PropertyValueFactory property="statusText" /></cellValueFactory>
+									</TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                        
+                        <!-- 申请详情 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="申请详情" />
+                            </HBox>
+                            
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <HBox spacing="20">
+                                    <VBox spacing="5" style="-fx-pref-width: 300;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="申请人:" />
+                                        <Label fx:id="exchangeApplicant" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                    <VBox spacing="5" style="-fx-pref-width: 250;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="原宿舍:" />
+                                        <Label fx:id="exchangeOriginalRoom" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                    <VBox spacing="5" style="-fx-pref-width: 200;">
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="申请时间:" />
+                                        <Label fx:id="exchangeTime" style="-fx-text-fill: #2c3e50;" />
+                                    </VBox>
+                                </HBox>
+                                
+                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="换舍原因:" />
+                                <TextArea fx:id="exchangeDetail" editable="false" style="-fx-pref-height: 100;" />
+                                
+                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="处理意见:" />
+                                <TextArea fx:id="exchangeFeedback" promptText="请输入处理意见..." style="-fx-pref-height: 100;" />
+                                
+                                <HBox spacing="20">
+                                    <Button fx:id="exchangeApproveBtn" onAction="#handleExchangeApprove" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="批准" />
+                                    <Button fx:id="exchangeRejectBtn" onAction="#handleExchangeReject" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-pref-width: 100;" text="拒绝" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+        </TabPane>
+    </center>
+    
+</BorderPane>

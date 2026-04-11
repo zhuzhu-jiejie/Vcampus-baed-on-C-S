@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="seu.vcampus.client.controller.LibraryManage2Controller"
+            prefWidth="900" prefHeight="768">
+    
+    <!-- 顶部导航栏 -->
+    <top>
+        <HBox style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+            <Label text="图书馆研讨间管理系统" 
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #165DFF;"/>
+            <Label text="(管理员模式)" 
+                   style="-fx-font-size: 14px; -fx-text-fill: #F87272; -fx-margin: 0 0 0 10;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="currentUserLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;"/>
+            <Label fx:id="currentDateLabel" style="-fx-font-size: 14px; -fx-text-fill: #666; -fx-margin: 0 0 0 15;"/>
+        </HBox>
+    </top>
+    
+    <!-- 主内容区 -->
+    <center>
+        <VBox style="-fx-padding: 20; -fx-spacing: 15;">
+            <!-- 管理操作区 -->
+            <HBox style="-fx-spacing: 10; -fx-alignment: center-left; -fx-padding: 10; -fx-background-color: #f9f9f9; -fx-border-radius: 5;">
+                <Label text="管理操作:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <Button fx:id="addRoomBtn" text="添加研讨间" style="-fx-background-color: #36D399; -fx-text-fill: white;"/>
+                <Button fx:id="refreshBtn" text="刷新列表" style="-fx-background-color: #165DFF; -fx-text-fill: white;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox style="-fx-spacing: 10;">
+                    <Label text="搜索房间:" style="-fx-font-weight: bold;"/>
+                    <TextField fx:id="searchRoomField" promptText="输入房间号搜索"/>
+                    <Button fx:id="searchBtn" text="搜索"/>
+                </HBox>
+            </HBox>
+            
+            <!-- 楼层导航 -->
+            <HBox style="-fx-spacing: 10; -fx-padding: 5 0;">
+                <ToggleButton text="1楼" fx:id="floor1Btn" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="2楼" fx:id="floor2Btn" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="3楼" fx:id="floor3Btn" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="4楼" fx:id="floor4Btn" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="5楼" fx:id="floor5Btn" style="-fx-pref-width: 80;"/>
+            </HBox>
+            
+            <!-- 楼层信息和统计 -->
+            <Label fx:id="floorInfoLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;"/>
+            
+            <!-- 研讨间列表 -->
+            <TableView fx:id="roomTableView" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="roomIdColumn" text="房间号" prefWidth="100"/>
+                    <TableColumn fx:id="floorColumn" text="楼层" prefWidth="80"/>
+                    <TableColumn fx:id="capacityColumn" text="容纳人数" prefWidth="100"/>
+                    <TableColumn fx:id="statusColumn" text="当前状态" prefWidth="100"/>
+                    <TableColumn fx:id="reservationColumn" text="今日预约数" prefWidth="100"/>
+                    <TableColumn fx:id="equipmentColumn" text="设备情况" prefWidth="200"/>
+					<TableColumn fx:id="actionColumn" text="操作" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    
+</BorderPane>

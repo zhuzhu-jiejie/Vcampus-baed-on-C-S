@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_status.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentGradesController">
+   <content>
+   	  <!-- 最外层的VBox容器 -->
+      <VBox prefHeight="600.0" styleClass="background">
+         <children>
+         
+         	<!-- 统计信息卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="统计信息" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="info-key-text" text="学期GPA：" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="累计GPA：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="semesterGPA" styleClass="info-value-text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="totalGPA" styleClass="info-value-text" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="学期已修学分：" GridPane.rowIndex="2" />
+                        <Label fx:id="semesterCreditsEarned" styleClass="info-value-text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label styleClass="info-key-text" text="累计已修学分：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="totalCreditsEarned" styleClass="info-value-text" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label styleClass="info-key-text" text="选择学期：" />
+                        <ComboBox fx:id="semesterSelectionComboBox" onAction="#handleSemesterSelection" prefHeight="150" styleClass="my-combo-box" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            
+            <!-- 成绩列表卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="成绩列表" />
+                     </children>
+                  </HBox>
+                  <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="239.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="239.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="info-key-text" text="课程名：" />
+                        <TextField fx:id="searchBox" promptText="请输入课程名称" styleClass="my-textarea" GridPane.columnIndex="1" />
+                        <Button fx:id="search" mnemonicParsing="false" onAction="#handleSearchButton" styleClass="my-button" text="搜索" GridPane.columnIndex="3" />
+                     </children>
+                  </GridPane>
+                  
+                                    <!-- 加载提示 -->
+                  <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+                     <children>
+                        <!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                        <Label fx:id="loadingLabel" text="加载中..." visible="false">
+                           <graphic>
+                              <ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                        <Label fx:id="errorLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="gradesList" prefHeight="200.0" prefWidth="200.0" styleClass="my-table-view">
+                    <columns>
+                      <TableColumn fx:id="courseNameCol" prefWidth="131.0" text="课程名称" />
+                      <TableColumn fx:id="courseIdCol" prefWidth="131.0" text="课程代码" />
+                      <TableColumn fx:id="creditCol" prefWidth="113.0" text="学分" />
+                      <TableColumn fx:id="gradesCol" prefWidth="121.0" text="成绩" />
+                      <TableColumn fx:id="gpaCol" prefWidth="100.0" text="绩点" />
+                      <TableColumn fx:id="teacherCol" prefWidth="120.0" text="任课老师" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            
+         </children></VBox>
+   </content>
+</ScrollPane>

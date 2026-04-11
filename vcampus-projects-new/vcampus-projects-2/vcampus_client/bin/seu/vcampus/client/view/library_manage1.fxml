@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane prefHeight="600" prefWidth="900" 
+            xmlns="http://javafx.com/javafx/8" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            style="-fx-background-color: transparent;" 
+            fx:controller="seu.vcampus.client.controller.LibraryManage1Controller">
+    
+    <!-- 中央内容区域：带滚动条，背景渐变 -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);">
+            <content>
+                <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);">
+                    <children>
+                        <!-- 卡片1：图书查询条件 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <!-- 卡片标题栏 -->
+                                <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="图书查询" />
+                                </HBox>
+                                
+                                <!-- 查询条件表单（GridPane布局） -->
+                                <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                        <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                        <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                        <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                    </columnConstraints>
+                                    <children>
+                                        <!-- 第一行：图书ID + 书名 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="图书ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <TextField fx:id="bookIdField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="书名:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                        <TextField fx:id="bookTitleField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                        
+                                        <!-- 第二行：作者 + 出版社 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="作者:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <TextField fx:id="authorField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="出版社:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <TextField fx:id="publisherField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        
+                                        <!-- 第三行：出版年份 + 位置 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="出版年份:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <TextField fx:id="publishYearField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="位置:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="locationComboBox" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                    
+                                        
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="全部" />
+                                                    <String fx:value="一楼大厅" />
+                                                    <String fx:value="二楼文学区" />
+                                                    <String fx:value="三楼科技区" />
+                                                    <String fx:value="四楼社会科学区" />
+                                                    <String fx:value="五楼特藏区" />
+                                                    <String fx:value="六楼外文区" />
+                                                </FXCollections>
+                                            </items>
+                                            <value><String fx:value="全部" /></value>
+                                        </ComboBox>
+                                        
+                                        <!-- 第四行：分类 + 状态 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="分类:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                        <ComboBox fx:id="categoryComboBox" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="状态:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <ComboBox fx:id="statusComboBox" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="全部" />
+                                                    <String fx:value="可借" />
+                                                    <String fx:value="借出" />
+                                                    <String fx:value="维护中" />
+                                                </FXCollections>
+                                            </items>
+                                            <value><String fx:value="全部" /></value>
+                                        </ComboBox>
+                                        
+                                        <!-- 第五行：操作按钮（查询、重置、增删改） -->
+                                        <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="4">
+                                            <children>
+                                                <Button fx:id="searchButton" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="查询" />
+                                                <Button fx:id="resetButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="重置" />
+                                                <Button fx:id="addBookButton" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="添加图书" />
+                                                <Button fx:id="editBookButton" style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 5; -fx-padding: 5 15;" text="编辑图书" disable="true" />
+                                                <Button fx:id="deleteBookButton" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="删除图书" disable="true" />
+                                            </children>
+                                            <GridPane.margin>
+                                                <Insets top="10.0" />
+                                            </GridPane.margin>
+                                        </HBox>
+                                    </children>
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                        
+                        <!-- 卡片2：图书列表与分页 -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <!-- 卡片标题栏 -->
+                                <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #6c757d; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="图书列表" />
+                                    <Label fx:id="resultCountLabel" style="-fx-text-fill: white; -fx-font-size: 14px;" text="(共找到 0 本图书)" />
+                                </HBox>
+                                
+                                <!-- 列表与分页区域 -->
+                                <VBox spacing="15" style="-fx-padding: 20;">
+                                    <children>
+                                        <!-- 图书表格 -->
+                                        <TableView fx:id="bookTableView" prefHeight="300" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+                                            <columns>
+                                                <TableColumn fx:id="bookIdColumn" prefWidth="80" text="图书ID">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="bookId" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="titleColumn" prefWidth="180" text="书名">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="title" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="authorColumn" prefWidth="120" text="作者">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="author" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="publisherColumn" prefWidth="150" text="出版社">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="publisher" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="publishYearColumn" prefWidth="80" text="出版年">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="publishYear" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="categoryColumn" prefWidth="100" text="分类">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="category" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="locationColumn" prefWidth="120" text="位置">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="location" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn fx:id="statusColumn" prefWidth="80" text="状态">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="status" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                            </columns>
+                                            <placeholder>
+                                                <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 14px;" text="暂无图书数据，请点击「添加图书」创建" />
+                                            </placeholder>
+                                        </TableView>
+                                        
+                                        <!-- 分页控件 -->
+                                        <HBox alignment="CENTER" spacing="12" style="-fx-padding: 5 0;">
+                                            <children>
+                                                <Button fx:id="firstPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="首页" />
+                                                <Button fx:id="prevPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="上一页" />
+                                                <Label fx:id="currentPageLabel" style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="第 1 页 / 共 0 页" />
+                                                <Button fx:id="nextPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="下一页" />
+                                                <Button fx:id="lastPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="末页" />
+                                                
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="每页显示:" />
+                                                <ComboBox fx:id="pageSizeComboBox" prefWidth="80" style="-fx-border-color: #ddd; -fx-background-radius: 3;">
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="10" />
+                                                            <Integer fx:value="20" />
+                                                            <Integer fx:value="30" />
+                                                        </FXCollections>
+                                                    </items>
+                                                    <value><Integer fx:value="10" /></value>
+                                                </ComboBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

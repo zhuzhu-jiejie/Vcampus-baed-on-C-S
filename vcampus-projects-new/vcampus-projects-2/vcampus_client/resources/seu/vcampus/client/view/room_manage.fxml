@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="seu.vcampus.client.controller.RoomManageController"
+            prefWidth="1024" prefHeight="768">
+    
+    <!-- 1. 定义非可视化资源（ToggleGroup放在这里，而非VBox中） -->
+    <fx:define>
+        <!-- 楼层切换的ToggleGroup（非可视化，供按钮引用） -->
+        <ToggleGroup fx:id="floorToggleGroup"/>
+        
+        <!-- 预约弹窗（非可视化，需要时弹出） -->
+        <DialogPane fx:id="bookingDialog" style="-fx-padding: 20;">
+            <headerText>预约研讨间</headerText>
+            <content>
+                <VBox style="-fx-spacing: 15; -fx-pref-width: 400;">
+                    <HBox style="-fx-spacing: 10; -fx-alignment: center-left;">
+                        <Label text="研讨间:" style="-fx-font-weight: bold; -fx-pref-width: 80;"/>
+                        <Label fx:id="roomNumberLabel"/>
+                    </HBox>
+                    <HBox style="-fx-spacing: 10; -fx-alignment: center-left;">
+                        <Label text="预约日期:" style="-fx-font-weight: bold; -fx-pref-width: 80;"/>
+                        <Label fx:id="dialogDateLabel"/>
+                    </HBox>
+                    <HBox style="-fx-spacing: 10; -fx-alignment: center-left;">
+                        <Label text="预约时段:" style="-fx-font-weight: bold; -fx-pref-width: 80;"/>
+                        <Label fx:id="dialogTimeLabel"/>
+                    </HBox>
+                    <VBox style="-fx-spacing: 5;">
+                        <Label text="预约用途:" style="-fx-font-weight: bold;"/>
+                        <TextArea fx:id="purposeTextArea" prefRowCount="3" style="-fx-pref-width: 100%;"/>
+                    </VBox>
+                </VBox>
+            </content>
+            <buttonTypes>
+                <ButtonType fx:id="cancelBtn" text="取消"/>
+                <ButtonType fx:id="confirmBtn" text="确认预约"/>
+            </buttonTypes>
+        </DialogPane>
+    </fx:define>
+    
+    <!-- 顶部导航栏（无图片，纯文本） -->
+    <top>
+        <HBox style="-fx-background-color: white; -fx-padding: 10; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+            <Label text="图书馆研讨间预约系统" 
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #165DFF;"/>
+            <Region HBox.hgrow="ALWAYS"/>  <!-- 占满中间空间，让日期靠右 -->
+            <Label fx:id="currentDateLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;"/>
+        </HBox>
+    </top>
+    
+    <!-- 主内容区（仅包含可视化Node组件） -->
+    <center>
+        <VBox style="-fx-padding: 20; -fx-spacing: 15;">
+            <!-- 日期选择区 -->
+            <HBox style="-fx-spacing: 10; -fx-alignment: center-left;">
+                <Label text="预约日期:" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="bookingDatePicker"/>
+                <!-- 添加时段选择器 -->
+                <Label text="预约时段:" style="-fx-font-weight: bold; -fx-padding: 0 0 0 20;"/>
+                <ComboBox fx:id="timeSlotComboBox" style="-fx-pref-width: 150;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <!-- 状态指示器（可视化组件：Pane+Label） -->
+                <HBox style="-fx-spacing: 15;">
+                    <HBox style="-fx-alignment: center; -fx-spacing: 5;">
+                        <Pane style="-fx-background-color: #36D399; -fx-pref-width: 10; -fx-pref-height: 10;"/>
+                        <Label text="可用"/>
+                    </HBox>
+                    <HBox style="-fx-alignment: center; -fx-spacing: 5;">
+                        <Pane style="-fx-background-color: #FBBD23; -fx-pref-width: 10; -fx-pref-height: 10;"/>
+                        <Label text="已预约"/>
+                    </HBox>
+                    <HBox style="-fx-alignment: center; -fx-spacing: 5;">
+                        <Pane style="-fx-background-color: #F87272; -fx-pref-width: 10; -fx-pref-height: 10;"/>
+                        <Label text="维护中"/>
+                    </HBox>
+                </HBox>
+            </HBox>
+            
+            <!-- 楼层导航（可视化组件：ToggleButton） -->
+            <HBox style="-fx-spacing: 10; -fx-padding: 5 0;">
+                <ToggleButton text="1楼" fx:id="floor1Btn" toggleGroup="$floorToggleGroup" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="2楼" fx:id="floor2Btn" toggleGroup="$floorToggleGroup" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="3楼" fx:id="floor3Btn" toggleGroup="$floorToggleGroup" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="4楼" fx:id="floor4Btn" toggleGroup="$floorToggleGroup" style="-fx-pref-width: 80;"/>
+                <ToggleButton text="5楼" fx:id="floor5Btn" toggleGroup="$floorToggleGroup" style="-fx-pref-width: 80;"/>
+            </HBox>
+            
+            <!-- 楼层信息（可视化组件：Label） -->
+            <Label fx:id="floorInfoLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;"/>
+            
+            <!-- 研讨间网格（可视化组件：ScrollPane+FlowPane） -->
+            <ScrollPane fitToWidth="true" style="-fx-border: none;">
+                <FlowPane fx:id="roomFlowPane" style="-fx-hgap: 20; -fx-vgap: 20; -fx-padding: 10 0;"/>
+            </ScrollPane>
+        </VBox>
+    </center>
+    
+</BorderPane>

@@ -1,0 +1,1104 @@
+.card-background{
+	-fx-background-color: #fdfdff; 
+	-fx-background-radius: 8; 
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-border-color: transparent; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 0;
+	-fx-border-radius: 8;
+	-fx-padding: 0;
+	-fx-background-insets: 0;
+}
+
+.white-background{
+	-fx-background-color: transparent; 
+	-fx-background-radius: 8; 
+	-fx-border-width: 0;
+	-fx-background-radius: 8; 
+	-fx-border-color: transparent;
+}
+
+.blue-background{
+	-fx-background-color: #fdfdff; 
+	-fx-background-radius: 8; 
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-border-width: 1px;
+	-fx-border-radius: 8;
+	-fx-padding: 0;
+	-fx-background-insets: 0;
+}
+
+.background {
+	-fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);
+	-fx-border-color: transparent;
+}
+
+.title-background{
+	-fx-background-insets: 0;
+	-fx-background-color: #116ecc; 
+	-fx-background-radius: 8px 8px 0 0; 
+	-fx-border-color: #116ecc; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px 8px 0 0;
+}
+
+.desk-title-background{
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-background-color: #116ecc; 
+	-fx-background-radius: 8px; 
+	-fx-border-color: #116ecc; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px;
+}
+
+.text-background{
+	-fx-background-color: #90c3f6; 
+	-fx-background-radius: 8px; 
+	-fx-border-color: #90c3f6; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px;
+}
+
+.error-background{
+	-fx-background-color: #fdfdff; 
+	-fx-background-radius: 8px; 
+	-fx-border-color: #116ecc; 
+	-fx-border-width: 2px;
+	-fx-border-radius: 8px;
+}
+
+.table-hbox{
+	-fx-background-color: #fdfdff; 
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-border-color: transparent; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 0;
+}
+
+/*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*/
+
+/* 基础ComboBox样式设置 */
+.combobox {
+    -fx-background-color: #fdfdff; 
+    -fx-border-color: #90c3f6;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8; 
+    -fx-border-radius: 8;
+}
+
+/* 下拉按钮（箭头部分）样式调整 */
+.combobox.arrow-button {
+    -fx-background-color: #fdfdff; 
+    -fx-background-radius: 0 8 8 0;
+}
+
+/* 下拉箭头颜色调整为蓝色，与边框呼应 */
+.combobox .arrow-button .arrow {
+    -fx-background-color: #90c3f6; /* 箭头颜色 */
+    -fx-background-insets: 0; /* 清除默认内边距 */
+}
+
+.combobox:hover .arrow-button .arrow {
+    -fx-background-color: #3d96ef;
+}
+
+.combobox:focused .arrow-button .arrow {
+    -fx-background-color: #3d96ef;
+}
+
+/* 悬停状态样式增强 */
+.combobox:hover {
+	-fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+/* 聚焦状态样式 */
+.combobox:showing {
+	-fx-background-color: #e3f0fd; 
+	    -fx-border-color: #3d96ef; 
+}
+
+.combobox.arrow-button:hover {
+    -fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+.combobox.arrow-button:showing {
+    -fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+/* 1. 下拉弹出框整体容器样式 */
+.combobox .combo-box-popup {
+    -fx-background-color: transparent; /* 弹出框背景透明，避免遮挡 */
+}
+
+/* 2. 下拉列表视图样式（核心容器） */
+.combobox .combo-box-popup .list-view {
+	-fx-background-insets: 0;
+	fx-padding: 0;
+	-fx-effect: null;
+	-fx-margin: 0; /* 清除外部边距 */
+    -fx-background-color: #fdfdff; /* 列表背景色（白色） */
+    -fx-border-color: #3d96ef; /* 列表边框色（浅蓝色） */
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px; /* 列表圆角 */
+    -fx-border-radius: 8px;
+	-fx-translate-y: -1px;
+	-fx-min-height: 36px; /* 空状态下的最小高度（根据需求调整） */
+}
+
+/* 3. 列表项基础样式 */
+.combobox .combo-box-popup .list-view .list-cell {
+	-fx-background-radius: 8px; /* 列表圆角 */
+    -fx-border-radius: 8px;
+	-fx-margin: 0;
+	-fx-border-color: transparent;
+	-fx-border-width: 0;
+    -fx-background-color: transparent; /* 列表项背景透明（继承列表背景） */
+    -fx-text-fill: #333e48; /* 文字颜色 */
+    -fx-font-size: 14px;
+	-fx-cell-size: 36px;
+}
+
+.combobox .combo-box-popup .list-view .list-cell:first-of-type {
+	-fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 8px 8px 0 0; /* 顶部圆角 */
+}
+
+/* 4. 尾单元格：底部圆角 */
+.combobox .combo-box-popup .list-view .list-cell:last-of-type {
+	-fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 0 0 8px 8px; /* 底部圆角 */
+}
+
+/* 4. 列表项交互状态样式 */
+/* 悬停状态 */
+.combobox .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+}
+
+/* 选中状态 */
+.combobox .combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #e3f0fd; /* 选中背景色（与悬停一致） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+}
+
+/* 空项状态（无内容时） */
+.combobox .combo-box-popup .list-view .list-cell:empty {
+    -fx-background-color: #fdfdff; /* 空项背景色（更浅的灰） */
+    -fx-text-fill: transparent; /* 隐藏空白文字 */
+	-fx-cell-size: 36px;
+}
+
+/* 5. 下拉列表滚动条样式（与已有滚动条风格统一） */
+.combobox .combo-box-popup .list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 3px 0 0;
+}
+
+.combobox .combo-box-popup .list-view .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+}
+
+.combobox .combo-box-popup .list-view .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd;
+    -fx-background-radius: 5px;
+    -fx-background-insets: 0;
+}
+
+.combobox .combo-box-popup .list-view .scroll-bar .thumb:hover {
+    -fx-background-color: #2987e3;
+}
+
+.combobox .combo-box-popup .list-view .scroll-bar .thumb:pressed {
+    -fx-background-color: #2987e3;
+}
+
+/* 6. 移除下拉列表边缘的分隔线（可选） */
+.combobox .combo-box-popup .list-view .virtual-flow .separator {
+    -fx-opacity: 0;
+}
+
+/*设置error-combobox */
+
+.error-combobox {
+    -fx-background-color: #fdfdff; 
+    -fx-border-color: #90c3f6;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8; 
+    -fx-border-radius: 8;
+}
+
+/* 下拉按钮（箭头部分）样式调整 */
+.error-combobox.arrow-button {
+    -fx-background-color: #fdfdff; 
+    -fx-background-radius: 0 8 8 0;
+}
+
+/* 下拉箭头颜色调整为蓝色，与边框呼应 */
+.error-combobox .arrow-button .arrow {
+    -fx-background-color: #90c3f6; /* 箭头颜色 */
+    -fx-background-insets: 0; /* 清除默认内边距 */
+}
+
+.error-combobox:hover .arrow-button .arrow {
+    -fx-background-color: #3d96ef;
+}
+
+.error-combobox:focused .arrow-button .arrow {
+    -fx-background-color: #3d96ef;
+}
+
+/* 悬停状态样式增强 */
+.error-combobox:hover {
+	-fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+/* 聚焦状态样式 */
+.error-combobox:showing {
+	-fx-background-color: #e3f0fd; 
+	    -fx-border-color: #3d96ef; 
+}
+
+.error-combobox.arrow-button:hover {
+    -fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+.error-combobox.arrow-button:showing {
+    -fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+/* 1. 下拉弹出框整体容器样式 */
+.error-combobox .combo-box-popup {
+    -fx-background-color: transparent; /* 弹出框背景透明，避免遮挡 */
+}
+
+/* 2. 下拉列表视图样式（核心容器） */
+.error-combobox .combo-box-popup .list-view {
+	-fx-vbar-policy: NEVER;
+	-fx-background-insets: 0;
+	fx-padding: 0;
+	-fx-effect: null;
+	-fx-margin: 0; /* 清除外部边距 */
+    -fx-background-color: #fdfdff; /* 列表背景色（白色） */
+    -fx-border-color: #3d96ef; /* 列表边框色（浅蓝色） */
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px; /* 列表圆角 */
+    -fx-border-radius: 8px;
+	-fx-translate-y: -1px;
+}
+
+/* 3. 列表项基础样式 */
+.error-combobox .combo-box-popup .list-view .list-cell {
+	-fx-background-radius: 8px; /* 列表圆角 */
+    -fx-border-radius: 8px;
+	-fx-margin: 0;
+	-fx-border-color: transparent;
+	-fx-border-width: 0;
+    -fx-background-color: transparent; /* 列表项背景透明（继承列表背景） */
+    -fx-text-fill: #333e48; /* 文字颜色 */
+    -fx-font-size: 14px;
+}
+
+.error-combobox .combo-box-popup .list-view .list-cell:first-of-type {
+	-fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 8px 8px 0 0; /* 顶部圆角 */
+}
+
+/* 4. 尾单元格：底部圆角 */
+.error-combobox .combo-box-popup .list-view .list-cell:last-of-type {
+	-fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+	-fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 0 0 8px 8px; /* 底部圆角 */
+}
+
+/* 4. 列表项交互状态样式 */
+/* 悬停状态 */
+.error-combobox .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #e3f0fd; /* 悬停背景色（浅蓝） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-button {
+    /* visibility: hidden; 隐藏元素但保留占位 */
+    /* 配合 min-width/min-height: 0; 消除占位，避免右侧留空白 */
+    -fx-visibility: hidden;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+/* 3. 隐藏滚动条的“向下按钮”（increment-button） */
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-button {
+    /* 与向上按钮样式一致，确保两个按钮都隐藏且不占空间 */
+    -fx-visibility: hidden;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-button,
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-button {
+    -fx-background-color: transparent; /* 清除按钮背景 */
+    -fx-background-insets: 0;         /* 清除内边距，避免占位 */
+    -fx-padding: 0;                   /* 清除外边距，彻底消除空间 */
+    -fx-visibility: hidden;           /* 强制隐藏按钮（核心） */
+    -fx-opacity: 0;                   /* 双重保险：透明度设为0，防止残留 */
+}
+
+/* 可选：若箭头图标仍残留，强制隐藏图标（针对部分JavaFX版本） */
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-arrow,
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-arrow {
+    -fx-background-color: transparent; /* 清除箭头颜色 */
+    -fx-opacity: 0;                   /* 箭头透明度设为0 */
+}
+
+/* 选中状态 */
+.error-combobox .combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #e3f0fd; /* 选中背景色（与悬停一致） */
+    -fx-border-color: #e3f0fd;
+	-fx-border-width: 1px;
+}
+
+/* 空项状态（无内容时） */
+.error-combobox .combo-box-popup .list-view .list-cell:empty {
+    -fx-background-color: #fdfdff; /* 空项背景色（更浅的灰） */
+    -fx-text-fill: transparent; /* 隐藏空白文字 */
+}
+
+/* 5. 下拉列表滚动条样式（与已有滚动条风格统一） */
+.error-combobox .combo-box-popup .list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd;
+    -fx-background-radius: 0px;
+    -fx-background-insets: 0;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar .thumb:hover {
+    -fx-background-color: #2987e3;
+}
+
+.error-combobox .combo-box-popup .list-view .scroll-bar .thumb:pressed {
+    -fx-background-color: #2987e3;
+}
+
+/* 6. 移除下拉列表边缘的分隔线（可选） */
+.error-combobox .combo-box-popup .list-view .virtual-flow .separator {
+    -fx-opacity: 0;
+}
+
+/*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*/
+
+/*NEWCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*/
+
+/* 基础ComboBox样式设置 */
+.new-combobox {
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+    -fx-background-color: #116ecc; 
+    -fx-border-color: #116ecc;
+    -fx-border-width: 1px;
+}
+
+.new-combobox .text {
+    -fx-fill: #fdfdff; /* 这里设置输入框文字颜色 */
+	-fx-font-size: 14px;
+}
+
+/* 下拉按钮（箭头部分）样式调整 */
+.new-combobox.arrow-button {
+    -fx-background-color: #116ecc; 
+}
+
+/* 下拉箭头颜色调整为蓝色，与边框呼应 */
+.new-combobox .arrow-button .arrow {
+    -fx-background-color: #fdfdff; /* 箭头颜色 */
+    -fx-background-insets: 0; /* 清除默认内边距 */
+}
+
+.new-combobox:hover .arrow-button .arrow {
+    -fx-background-color: #fdfdff;
+}
+
+.new-combobox:focused .arrow-button .arrow {
+    -fx-background-color: #fdfdff;
+}
+
+/* 悬停状态样式增强 */
+.new-combobox:hover {
+	-fx-background-color: #4089d2; 
+    -fx-border-color: #4089d2; 
+}
+.new-combobox.arrow-button:hover {
+    -fx-background-color: #4089d2; 
+    -fx-border-color: #4089d2; 
+}
+
+.new-combobox:showing {
+	-fx-background-color: #4089d2; 
+    -fx-border-color: #4089d2; 
+}
+.new-combobox.arrow-button:showing {
+    -fx-background-color: #4089d2; 
+    -fx-border-color: #4089d2; 
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-button {
+    /* visibility: hidden; 隐藏元素但保留占位 */
+    /* 配合 min-width/min-height: 0; 消除占位，避免右侧留空白 */
+    -fx-visibility: hidden;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+/* 3. 隐藏滚动条的“向下按钮”（increment-button） */
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-button {
+    /* 与向上按钮样式一致，确保两个按钮都隐藏且不占空间 */
+    -fx-visibility: hidden;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+/* 1. 下拉弹出框整体容器样式 */
+.new-combobox .combo-box-popup {
+    -fx-background-color: transparent; /* 弹出框背景透明，避免遮挡 */
+}
+
+/* 2. 下拉列表视图样式（核心容器） */
+.new-combobox .combo-box-popup .list-view {
+	-fx-vbar-policy: NEVER;
+	-fx-effect: null;
+	-fx-margin: 0; /* 清除外部边距 */
+    -fx-background-color: #116ecc; /* 列表背景色（白色） */
+    -fx-border-color: #116ecc; /* 列表边框色（浅蓝色） */
+    -fx-border-width: 0px;
+	-fx-min-height: 36px; /* 空状态下的最小高度（根据需求调整） */
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-button,
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-button {
+    -fx-background-color: transparent; /* 清除按钮背景 */
+    -fx-background-insets: 0;         /* 清除内边距，避免占位 */
+    -fx-padding: 0;                   /* 清除外边距，彻底消除空间 */
+    -fx-visibility: hidden;           /* 强制隐藏按钮（核心） */
+    -fx-opacity: 0;                   /* 双重保险：透明度设为0，防止残留 */
+}
+
+/* 可选：若箭头图标仍残留，强制隐藏图标（针对部分JavaFX版本） */
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .decrement-arrow,
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical .increment-arrow {
+    -fx-background-color: transparent; /* 清除箭头颜色 */
+    -fx-opacity: 0;                   /* 箭头透明度设为0 */
+}
+
+/* 3. 列表项基础样式 */
+.new-combobox .combo-box-popup .list-view .list-cell {
+    -fx-background-color: transparent; /* 列表项背景透明（继承列表背景） */
+    -fx-font-size: 14px;
+	-fx-cell-size: 36px;
+}
+/* 4. 列表项交互状态样式 */
+/* 悬停状态 */
+.new-combobox .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #4089d2; /* 悬停背景色（浅蓝） */
+      -fx-border-color: #4089d2; 
+}
+
+/* 选中状态 */
+.new-combobox .combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #4089d2; /* 选中背景色（与悬停一致） */
+      -fx-border-color: #4089d2; 
+}
+
+/* 空项状态（无内容时） */
+.new-combobox .combo-box-popup .list-view .list-cell:empty {
+    -fx-background-color: #fdfdff; /* 空项背景色（更浅的灰） */
+    -fx-text-fill: transparent; /* 隐藏空白文字 */
+	-fx-cell-size: 36px;
+}
+
+/* 5. 下拉列表滚动条样式（与已有滚动条风格统一） */
+.new-combobox .combo-box-popup .list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd;
+    -fx-background-radius: 0px;
+    -fx-background-insets: 0;
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar .thumb:hover {
+    -fx-background-color: #116ecc;
+}
+
+.new-combobox .combo-box-popup .list-view .scroll-bar .thumb:pressed {
+    -fx-background-color: #116ecc;
+}
+
+/* 6. 移除下拉列表边缘的分隔线（可选） */
+.new-combobox .combo-box-popup .list-view .virtual-flow .separator {
+    -fx-opacity: 0;
+}
+
+/*NEWCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*/
+
+.my-label {
+	-fx-text-fill: #333e48;
+}
+
+.title-label{
+	-fx-text-fill: #fdfdff;
+}
+
+/*BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB*/
+
+.my-button {
+	-fx-background-color: #fdfdff; 
+	-fx-border-color: #0f64b8;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8; 
+	-fx-border-radius: 8;
+	-fx-text-fill: #0f64b8;
+}
+
+.my-button:hover {
+	-fx-background-color: #e3f0fd; 
+	-fx-border-color: #3d96ef; 
+	-fx-effect: dropshadow(gaussian, #e3f0fd, 5, 0, 0, 0);
+}
+
+.my-button:pressed {
+    -fx-scale-x: 0.98; /* 水平方向缩小到98% */
+    -fx-scale-y: 0.98; /* 垂直方向缩小到98% */
+}
+
+.error-button {
+	-fx-background-color: #fdfdff; 
+	-fx-border-color: #ce2111;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8; 
+	-fx-border-radius: 8;
+	-fx-text-fill: #ce2111;
+}
+
+.error-button:hover {
+	-fx-background-color: #f4e8ec; 
+	-fx-border-color: #ff4c4c; 
+	-fx-text-fill: #ff4c4c;
+	-fx-effect: dropshadow(gaussian, #e3f0fd, 5, 0, 0, 0);
+}
+
+.error-button:pressed {
+    -fx-scale-x: 0.98; /* 水平方向缩小到98% */
+    -fx-scale-y: 0.98; /* 垂直方向缩小到98% */
+}
+
+.big-button{
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-background-color: #116ecc; 
+	-fx-border-color: #116ecc;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8; 
+	-fx-border-radius: 8;
+	-fx-text-fill: #fdfdff;
+}
+
+.big-button:pressed {
+    -fx-scale-x: 0.98; /* 水平方向缩小到98% */
+    -fx-scale-y: 0.98; /* 垂直方向缩小到98% */
+}
+
+.big-button:hover {
+	-fx-background-color: #4089d2; 
+	-fx-border-color: #4089d2; 
+}
+
+.stage-button{
+	-fx-background-color: #116ecc; 
+	-fx-border-color: #116ecc;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8; 
+	-fx-border-radius: 8;
+	-fx-text-fill: #fdfdff;
+}
+
+.stage-button:pressed {
+    -fx-scale-x: 0.98; /* 水平方向缩小到98% */
+    -fx-scale-y: 0.98; /* 垂直方向缩小到98% */
+}
+
+.stage-button:hover {
+	-fx-background-color: #4089d2; 
+	-fx-border-color: #4089d2; 
+}
+
+/*BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB*/
+
+.textField {
+    /* 设置字体颜色 */
+    -fx-text-fill: #a6a6a6; 
+    /* 设置背景颜色 */
+    -fx-background-color: #fdfdff; 
+    /* 隐藏边框 */
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    /* 可选：添加内边距让文字不贴边 */
+    -fx-padding: 6px 12px;
+}
+
+.A-textF{
+	-fx-text-fill: #333e48; 
+	-fx-background-color: #fdfdff; 
+	-fx-border-color: #90c3f6;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8; 
+	-fx-border-radius: 8;
+}
+
+.A-textF:hover{
+	-fx-background-color: #e3f0fd; 
+	-fx-border-color: #3d96ef; 
+}
+
+.A-textF:focused{
+	-fx-background-color: #e3f0fd; 
+    -fx-border-color: #3d96ef; 
+}
+
+.small-taxtF{
+	-fx-text-fill: #333e48; 
+	-fx-background-color: #fdfdff; 
+	-fx-border-color: #90c3f6;
+	-fx-border-width: 1px;
+	-fx-background-radius: 8px; 
+	-fx-border-radius: 8px;
+}
+
+.small-textF:hover{
+	-fx-background-color: #fdfdff; 
+	-fx-border-color: #90c3f6; 
+}
+
+.small-textF:focused{
+	-fx-background-color: #fdfdff; 
+    -fx-border-color: #90c3f6; 
+}
+
+/*TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
+
+/* 1. TableView整体样式 */
+.my-tableview {
+    -fx-background-color: #fdfdff; /* 表格背景色（白色） */
+    -fx-border-color: #116ecc; /* 表格边框色（浅蓝色） */
+    -fx-border-width: 0px;
+    -fx-padding: 0;
+}
+
+/* 2. 表头样式 */
+.my-tableview .column-header-background {
+    -fx-background-color: #116ecc; /* 表头背景色（极浅蓝） */
+    -fx-border-width: 1px; /* 表头底部边框 */
+    -fx-border-color: #116ecc;
+}
+
+.my-tableview .column-header {
+	-fx-border-color: #116ecc;
+	-fx-border-width: 1px;
+	-fx-background-insets: 0; /* 清除表头单元格的内边距 */
+    -fx-background-color: transparent; /* 表头单元格背景透明 */
+    -fx-size: 40px; /* 表头高度 */
+}
+
+.my-tableview .column-header .label {
+	-fx-font-size: 14px;
+    -fx-text-fill: #fdfdff; /* 表头文字色（主蓝色） */
+    -fx-font-weight: 500; /* 文字稍粗 */
+    -fx-alignment: center; /* 文字左对齐 */
+    -fx-padding: 0 15px; /* 文字内边距 */
+	-fx-font-size: 14px;
+}
+
+/* 3. 表格内容区域样式 */
+.my-tableview .table-row-cell {
+    -fx-background-color: transparent; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: #d1d3d7;
+}
+
+.my-tableview .table-row-cell.selected-row .table-cell{
+    -fx-background-color: transparent; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #0f64b8 ;
+}
+
+.my-tableview .table-row-cell.selected-row:hover .table-cell{
+	-fx-background-color: #e3f0fd; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #0f64b8 ;
+}
+
+.my-tableview .table-row-cell.selected-row:selected .table-cell{
+	-fx-background-color: #e3f0fd; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #0f64b8 ;
+}
+
+.my-tableview .table-row-cell.selected-row:selected .table-cell {
+    -fx-text-fill: #0f64b8 ; /* 选中行文字色（主蓝色） */
+}
+
+.my-tableview .table-row-cell.conflict-row .table-cell{
+    -fx-background-color: transparent; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #ce2111;
+}
+
+.my-tableview .table-row-cell.conflict-row:hover .table-cell{
+	-fx-background-color: #f4e8ec; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #ce2111;
+} 
+
+.my-tableview .table-row-cell.conflict-row:selected .table-cell{
+	-fx-background-color: #f4e8ec; /* 行背景透明（继承表格背景） */
+    -fx-border-width: 0; /* 清除行边框 */
+	-fx-border-color: transparent;
+	-fx-text-fill: #ce2111;
+}
+
+.my-tableview .table-row-cell.conflict-row:selected .table-cell {
+    -fx-text-fill: #ce2111; /* 选中行文字色（主蓝色） */
+}
+
+/* 单元格样式 */
+.my-tableview .table-cell {
+    -fx-text-fill: #333e48; /* 单元格文字色（深灰） */
+	-fx-font-size: 14px;
+    -fx-alignment: center; /* 内容左对齐 */
+    -fx-padding: 0 15px; /* 单元格内边距 */
+    -fx-border-width: 0; /* 清除单元格边框 */
+}
+
+.my-tableview .table-cell .table-cell{
+	-fx-text-fill: #116ecc;
+}
+
+/* 4. 交互状态样式 */
+/* 鼠标悬停行 */
+.my-tableview .table-row-cell:hover {
+    -fx-background-color: #e3f0fd; /* 悬停行背景色（浅蓝） */
+}
+
+/* 选中行 */
+.my-tableview .table-row-cell:selected {
+    -fx-background-color: #e3f0fd; /* 选中行背景色（与悬停一致） */
+    -fx-table-cell-border-color: #e3f0fd; /* 选中行单元格边框色 */
+    -fx-text-fill: #116ecd;
+}
+
+/* 5. 滚动条样式（与ComboBox滚动条保持一致） */
+.my-tableview .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 3px 0 0;
+}
+
+.my-tableview .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+}
+
+.my-tableview .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd;
+    -fx-background-radius: 5px;
+    -fx-background-insets: 0;
+}
+
+.my-tableview .scroll-bar .thumb:hover {
+    -fx-background-color: #2987e3;
+}
+
+.my-tableview .scroll-bar .thumb:pressed {
+    -fx-background-color: #3c96ef;
+}
+
+/* 6. 移除表格默认的焦点样式 */
+.my-tableview:focused {
+	-fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* 7. 表格为空时的提示样式（可选） */
+.my-tableview:empty {
+    -fx-background-color: #fdfdff;
+}
+
+.my-tableview:empty .table-view-background {
+    -fx-background-color: #fdfdff;
+}
+
+.my-tableview .column-header .arrow {
+    -fx-background-color: #fdfdff; /* 箭头默认颜色（浅蓝色，与边框呼应） */
+}
+
+/*TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
+
+
+/*GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*/
+
+/* 5. 课表网格（GridPane）核心样式 - 模拟表格感，匹配系统白色基调 */
+
+.course-grid {
+    -fx-background-color: #fdfdff; 
+    -fx-background-radius: 0px; 
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+    -fx-border-color: #116ecc; /* 边框色匹配系统表格边框 */
+    -fx-border-width: 2px;
+    -fx-border-radius: 0px;
+    -fx-padding: 0px
+}
+
+/* 6. 课表单元格基础样式（默认空白单元格） */
+.course-grid-cell {
+    -fx-background-color: #fdfdff; /* 浅灰背景：区分单元格区域 */
+    -fx-border-color: #116ecc;
+    -fx-border-width: 1px;
+    -fx-padding: 0px;
+}
+
+/* 7. 有课程的单元格样式 - 突出课程区域，匹配系统蓝色系 */
+.course-grid-cell.has-course {
+    -fx-background-color: #e3f0fd; 
+    -fx-border-color: #116ecc; 
+    -fx-border-width: 1px;
+}
+
+/* 8. 课表单元格文字样式 - 统一文字风格 */
+.course-grid-cell .label {
+    -fx-text-fill: #333e48; /* 系统默认文字色 */
+    -fx-font-size: 14px; /* 课程文字稍小：适配单元格大小 */
+    -fx-wrap-text: true; /* 文字换行：避免课程名过长溢出 */
+    -fx-alignment: center; /* 文字居中：提升可读性 */
+}
+.course-grid-cell.has-course .label {
+    -fx-text-fill: #116ecd; /* 课程文字用系统主蓝色：突出课程信息 */
+    -fx-font-size: 14px;
+    -fx-wrap-text: true; 
+    -fx-alignment: center;
+}
+
+/* 9. 课表表头单元格样式（星期/节次）- 匹配系统表头风格 */
+.course-grid-header {
+    -fx-background-color: #116ecc; /* 系统主蓝色背景：与表格表头一致 */
+    -fx-background-radius: 0px;
+    -fx-border-color: #116ecc;
+	-fx-border-radius: 0px;
+	-fx-border-width: 1px;
+}
+.course-grid-header .label {
+    -fx-text-fill: #fdfdff; /* 白色文字：与表头文字色一致 */
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+/*SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
+
+/* 自定义滚动面板样式（使用my-scroll类名） */
+.my-scroll {
+    -fx-background-color: #fdfdff; /* 滚动面板背景色 */
+    -fx-border-color: #116ecc; /* 边框颜色 */
+    -fx-border-width: 2px; /* 边框宽度 */
+    -fx-padding: 0;
+}
+
+/* my-scroll下的滚动条基础样式 */
+.my-scroll .scroll-bar {
+    -fx-background-color: transparent; /* 滚动条背景透明 */
+}
+
+/* my-scroll下的水平滚动条轨道 */
+.my-scroll .scroll-bar:horizontal .track {
+    -fx-background-color: transparent; /* 轨道背景色 */
+    -fx-height: 5px; /* 轨道高度 */
+    -fx-border-radius: 3px; /* 轨道圆角 */
+}
+
+/* my-scroll下的垂直滚动条轨道 */
+.my-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent; /* 轨道背景色 */
+    -fx-width: 5px; /* 轨道宽度 */
+    -fx-border-radius: 3px; /* 轨道圆角 */
+}
+
+/* my-scroll下的滚动条滑块 */
+.my-scroll .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd; /* 滑块颜色 */
+    -fx-border-radius: 3px; /* 滑块圆角 */
+}
+
+/* 滑块悬停效果 */
+.my-scroll .scroll-bar .thumb:hover {
+    -fx-background-color: #2987e3; /* 悬停时加深颜色 */
+}
+
+/* 滑块按压效果 */
+.my-scroll .scroll-bar .thumb:pressed {
+    -fx-background-color: #2987e3; /* 按压时颜色更深 */
+}
+
+/* 隐藏滚动条两端的按钮 */
+.my-scroll .scroll-bar .increment-button,
+.my-scroll .scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+/* 滚动面板内容区域样式 */
+.my-scroll .content {
+    -fx-background-color: transparent; /* 内容区域背景透明，继承父容器背景 */
+}
+
+.s-scroll {
+   -fx-background-color: #fdfdff; 
+	-fx-background-radius: 8; 
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-border-color: transparent; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 0;
+	-fx-border-radius: 8;
+	-fx-padding: 10px;
+	-fx-background-insets: 0;
+}
+
+/* my-scroll下的滚动条基础样式 */
+.s-scroll .scroll-bar {
+    -fx-background-color: transparent; /* 滚动条背景透明 */
+}
+
+/* my-scroll下的水平滚动条轨道 */
+.s-scroll .scroll-bar:horizontal .track {
+    -fx-background-color: transparent; /* 轨道背景色 */
+    -fx-height: 5px; /* 轨道高度 */
+    -fx-border-radius: 3px; /* 轨道圆角 */
+}
+
+/* my-scroll下的垂直滚动条轨道 */
+.s-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent; /* 轨道背景色 */
+    -fx-width: 5px; /* 轨道宽度 */
+    -fx-border-radius: 3px; /* 轨道圆角 */
+}
+
+/* my-scroll下的滚动条滑块 */
+.s-scroll .scroll-bar .thumb {
+    -fx-background-color: #e3f0fd; /* 滑块颜色 */
+    -fx-border-radius: 3px; /* 滑块圆角 */
+}
+
+/* 滑块悬停效果 */
+.s-scroll .scroll-bar .thumb:hover {
+    -fx-background-color: #2987e3; /* 悬停时加深颜色 */
+}
+
+/* 滑块按压效果 */
+.s-scroll .scroll-bar .thumb:pressed {
+    -fx-background-color: #2987e3; /* 按压时颜色更深 */
+}
+
+/* 隐藏滚动条两端的按钮 */
+.s-scroll .scroll-bar .increment-button,
+.s-scroll .scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+/* 滚动面板内容区域样式 */
+.s-scroll .content {
+    -fx-background-color: transparent; /* 内容区域背景透明，继承父容器背景 */
+}
+
+/*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
+
+/* 自定义CheckBox样式：my-check类 */
+.my-check {
+    -fx-text-fill: #333e48; /* 文本颜色 */
+}
+
+/* 勾选框容器（未选中状态） */
+.my-check .box {
+    -fx-border-color: #90c3f6; /* 边框颜色 */
+    -fx-border-width: 1px; /* 边框粗细 */
+    -fx-border-radius: 4px; /* 边框圆角 */
+    -fx-background-color: #fdfdff; /* 背景色 */
+}
+
+/* 勾选标记（对勾） */
+.my-check .mark {
+    -fx-background-color: transparent; /* 默认透明（未选中时不可见） */
+    -fx-shape: "M5,10 L8,13 L14,7"; /* 对勾形状（SVG路径） */
+    -fx-scale-shape: false; /* 不缩放形状 */
+}
+
+/* 选中状态样式 */
+.my-check:selected .box {
+    -fx-border-color: #3d96ef; /* 选中时边框色 */
+}
+.my-check:selected .mark {
+    -fx-background-color: #3d96ef; /* 选中时对勾颜色（白色） */
+}
+
+/* 鼠标悬浮状态 */
+.my-check:hover .box {
+    -fx-border-color: #3d96ef; /* 悬浮时边框变蓝色 */
+}

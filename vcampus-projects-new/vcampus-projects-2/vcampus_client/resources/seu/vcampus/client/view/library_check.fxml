@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 导入必要的JavaFX组件包 -->
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<!-- 根布局：BorderPane，绑定控制器路径（需与实际包名/类名一致） -->
+<BorderPane prefHeight="600" prefWidth="800" 
+            xmlns="http://javafx.com/javafx/8" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            style="-fx-background-color: transparent;" 
+            fx:controller="seu.vcampus.client.controller.LibraryCheckController">
+    
+    <!-- 中央内容区域：带滚动条，背景为渐变色 -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);">
+            <content>
+                <!-- 主容器：垂直布局，控制卡片间距和内边距 -->
+                <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);">
+                    <children>
+                        <!-- 卡片1：馆藏查询条件（蓝色顶栏+白色内容区） -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <!-- 卡片标题栏：蓝色背景，圆角仅上半部分 -->
+                                <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                    <children>
+                                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="馆藏查询" />
+                                    </children>
+                                </HBox>
+                                
+                                <!-- 搜索条件表单：4列GridPane，标签右对齐，输入控件左对齐 -->
+                                <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" minWidth="80" /> <!-- 标签列1 -->
+                                        <ColumnConstraints halignment="LEFT" minWidth="200" />  <!-- 输入控件列1 -->
+                                        <ColumnConstraints halignment="RIGHT" minWidth="80" /> <!-- 标签列2 -->
+                                        <ColumnConstraints halignment="LEFT" minWidth="200" />  <!-- 输入控件列2 -->
+                                    </columnConstraints>
+                                    <children>
+                                        <!-- 第一行：书名 + 作者 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="书名:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <TextField fx:id="bookTitleField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="作者:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                        <TextField fx:id="authorField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                        
+                                        <!-- 第二行：出版社 + 分区 -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="出版社:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <TextField fx:id="publisherField" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="分区:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <ComboBox fx:id="categoryComboBox" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        
+                                        <!-- 第三行：馆藏位置（跨1列，右侧留空） -->
+                                        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="馆藏位置:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="locationComboBox" style="-fx-background-radius: 5; -fx-border-color: #ddd;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        
+                                        <!-- 第四行：查询/重置按钮（跨4列，居中对齐） -->
+                                        <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="3">
+                                            <children>
+                                                <Button fx:id="searchButton" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="查询" />
+                                                <Button fx:id="resetButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 15;" text="重置" />
+                                            </children>
+                                            <GridPane.margin>
+                                                <Insets top="10.0" /> <!-- 顶部留白，避免与上方控件过近 -->
+                                            </GridPane.margin>
+                                        </HBox>
+                                    </children>
+                                    <!-- 行约束：4行，每行高度自适应 -->
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                        
+                        <!-- 卡片2：查询结果（靛蓝顶栏+白色内容区） -->
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <!-- 卡片标题栏：靛蓝背景，右侧显示结果计数 -->
+                                <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #6c757d; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                    <children>
+                                        <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="查询结果" />
+                                        <Label fx:id="resultCountLabel" style="-fx-text-fill: white; -fx-font-size: 14px;" text="(共找到 0 条记录)" />
+                                    </children>
+                                </HBox>
+                                
+                                <!-- 结果内容区：表格 + 分页控件 -->
+                                <VBox spacing="15" style="-fx-padding: 20;">
+                                    <children>
+                                        <!-- 结果表格：固定高度，带边框 -->
+                                        <TableView fx:id="resultTable" prefHeight="300" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+                                            <columns>
+                                                <!-- 表格列：每个列必须设置fx:id，与控制器变量完全匹配 -->
+                                                <!-- 新增预览按钮列 -->
+                                                <TableColumn fx:id="previewColumn" prefWidth="80" text="预览" />
+                                                <TableColumn fx:id="callNumberColumn" prefWidth="120" text="索书号" />
+                                                <TableColumn fx:id="titleColumn" prefWidth="200" text="书名" />
+                                                <TableColumn fx:id="authorColumn" prefWidth="120" text="作者" />
+                                                <TableColumn fx:id="publisherColumn" prefWidth="150" text="出版社" />
+                                                <TableColumn fx:id="publishYearColumn" prefWidth="80" text="出版年" />
+                                                <TableColumn fx:id="categoryColumn" prefWidth="100" text="分区" />
+                                                <TableColumn fx:id="locationColumn" prefWidth="100" text="馆藏位置" />
+                                                <TableColumn fx:id="statusColumn" prefWidth="80" text="状态" />
+                                            </columns>
+                                            <!-- 空数据提示：无结果时显示 -->
+                                            <placeholder>
+                                                <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 14px;" text="暂无查询结果，请输入条件后点击「查询」" />
+                                            </placeholder>
+                                        </TableView>
+                                        
+                                        <!-- 分页控件：居中对齐，按钮+页码+每页条数选择 -->
+                                        <HBox alignment="CENTER" spacing="12" style="-fx-padding: 5 0;">
+                                            <children>
+                                                <Button fx:id="firstPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="首页" />
+                                                <Button fx:id="prevPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="上一页" />
+                                                <Label fx:id="currentPageLabel" style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="第 1 页 / 共 0 页" />
+                                                <Button fx:id="nextPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="下一页" />
+                                                <Button fx:id="lastPageButton" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 3; -fx-padding: 3 10;" text="末页" />
+                                                
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="每页显示:" />
+                                                <ComboBox fx:id="pageSizeComboBox" prefWidth="80" style="-fx-border-color: #ddd; -fx-background-radius: 3;">
+                                                    <!-- 预设每页条数选项（控制器可覆盖） -->
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="10" />
+                                                            <Integer fx:value="20" />
+                                                            <Integer fx:value="30" />
+                                                        </FXCollections>
+                                                    </items>
+                                                    <value><Integer fx:value="10" /></value>
+                                                </ComboBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

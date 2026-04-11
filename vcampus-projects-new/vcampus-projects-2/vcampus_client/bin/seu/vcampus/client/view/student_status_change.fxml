@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_status.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentStatusChangeController">
+   <content>
+   	  <!-- 最外层的VBox容器 -->
+      <VBox styleClass="background">
+         <children>
+         
+         	<!-- 申请选项 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="申请入口" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <Button fx:id="absenceButton" mnemonicParsing="false" onAction="#displayAbsenceForm" styleClass="my-button" text="休学" />
+                        <Button fx:id="majorChangeButton" mnemonicParsing="false" onAction="#displayMajorChangeForm" styleClass="my-button" text="转专业" />
+                        <Button fx:id="dropoutButton" mnemonicParsing="false" onAction="#displayDropoutForm" styleClass="my-button" text="退学" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- 申请表单 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="申请表单" /> <!-- 表单如果是从下面点击上来的 是不是要设置一个不可更改时候的样式？ -->
+                     </children>
+                  </HBox>
+                  <VBox fx:id="applicationForm" maxWidth="Infinity" VBox.vgrow="ALWAYS" />
+                  <HBox alignment="CENTER_RIGHT" styleClass="card-bottom-bar">
+                     <children>
+                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#handleSubmission" styleClass="my-button" text="提交申请" />
+                        <Button fx:id="closeFormButton" mnemonicParsing="false" onAction="#handleFormClose" styleClass="my-button" text="关闭表单" />
+                        <Button fx:id="revokeButton" mnemonicParsing="false" onAction="#handleRevocation" styleClass="my-button" text="撤销申请" />                  
+                        <!-- 提交申请 撤销申请 关闭表单... -->
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- 学籍状态信息卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="申请记录" />
+                     </children>
+                  </HBox>
+                  
+                  <!-- 加载提示 -->
+                  <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+                     <children>
+                        <!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                        <Label fx:id="loadingLabel" text="加载中..." visible="false">
+                           <graphic>
+                              <ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                        <Label fx:id="errorLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="applicationList" styleClass="my-table-view">
+                    <columns>
+                      <TableColumn fx:id="typeCol" prefWidth="134.0" text="申请类型" />
+                      <TableColumn fx:id="dateCol" prefWidth="131.0" text="申请时间" />
+                      <TableColumn fx:id="reasonCol" prefWidth="312.0" text="申请原因" />
+                      <TableColumn fx:id="statusCol" prefWidth="378.0" text="当前状态" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            
+         </children></VBox>
+   </content>
+</ScrollPane>

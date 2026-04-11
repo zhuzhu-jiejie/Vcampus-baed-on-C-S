@@ -1,0 +1,102 @@
+/* logout.css - 登出界面样式 */
+
+/* 根面板样式 */
+.logout-root {
+    -fx-background-color: transparent;
+}
+
+/* 确认卡片样式 */
+.confirmation-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+/* 标题栏样式 */
+.confirmation-header {
+    -fx-background-color: #e74c3c;
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 15;
+}
+
+/* 标题文本样式 */
+.confirmation-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* 内容区域样式 */
+.confirmation-content {
+    -fx-padding: 30;
+    -fx-spacing: 20;
+}
+
+/* 提示文本样式 */
+.confirmation-text {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 14px;
+}
+
+/* 按钮容器样式 */
+.button-container {
+    -fx-spacing: 20;
+}
+
+/* 确认按钮基础样式 */
+.confirm-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-pref-width: 80;
+    -fx-cursor: hand;
+}
+
+/* 确认按钮悬停效果 */
+.confirm-button:hover {
+    -fx-background-color: #c0392b;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* 确认按钮按下效果 */
+.confirm-button:pressed {
+    -fx-background-color: #a23526;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* 取消按钮基础样式 */
+.cancel-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-pref-width: 80;
+    -fx-cursor: hand;
+}
+
+/* 取消按钮悬停效果 */
+.cancel-button:hover {
+    -fx-background-color: #7f8c8d;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* 取消按钮按下效果 */
+.cancel-button:pressed {
+    -fx-background-color: #6c7a7b;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* 淡入动画效果 - JavaFX CSS兼容版本 */
+.confirmation-card {
+    -fx-opacity: 0;
+}
+
+.confirmation-card.show {
+    -fx-opacity: 1;
+    -fx-transition: -fx-opacity 0.3s ease-in;
+}

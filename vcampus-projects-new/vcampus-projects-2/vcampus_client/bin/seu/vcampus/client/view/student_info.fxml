@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@../css/student_info.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: transparent;" fx:controller="seu.vcampus.client.controller.StudentInfoController">
+    
+    <!-- 中央内容区域（3个核心信息卡片，结构与原宿舍页面一致） -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+           <content>
+               <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: transparent;">
+                  <children>
+                      <!-- 卡片1：个人基本信息（蓝色顶栏，匹配原页面风格） -->
+                      <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                         <children>
+                             <HBox style="-fx-background-color: #3498db; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="个人基本信息" />
+                                </children>
+                             </HBox>
+                             
+                             <!-- 4列GridPane：标签右对齐，内容左对齐，与原页面布局一致 -->
+                             <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                                 <columnConstraints>
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                 </columnConstraints>
+                                <children>
+                                    
+                                    <!-- 第一行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="学号:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <Label fx:id="studentId" style="-fx-text-fill: #2c3e50;" text="20230001" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="姓名:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                    <Label fx:id="studentName" style="-fx-text-fill: #2c3e50;" text="张三" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                    
+                                    <!-- 第二行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="性别:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <Label fx:id="studentGender" style="-fx-text-fill: #2c3e50;" text="男" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="出生日期:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="studentBirth" style="-fx-text-fill: #2c3e50;" text="2005-01-15" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    
+                                    <!-- 第三行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="身份证号:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <Label fx:id="studentIdCard" style="-fx-text-fill: #2c3e50;" text="11010120050115XXXX" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="联系电话:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label fx:id="studentPhone" style="-fx-text-fill: #2c3e50;" text="13800138001" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    
+                                    <!-- 第四行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="邮箱:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                    <Label fx:id="studentEmail" style="-fx-text-fill: #2c3e50;" text="zhangsan@school.edu.cn" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="政治面貌:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Label fx:id="studentPolitics" style="-fx-text-fill: #2c3e50;" text="共青团员" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                </children>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                             </GridPane>
+                         </children>
+                      </VBox>
+                     
+                      <!-- 卡片2：学籍信息（靛蓝顶栏，突出学籍核心数据） -->
+                      <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                        <children>
+                             <HBox style="-fx-background-color: #6c757d; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="学籍基本信息" />
+                                </children>
+                             </HBox>
+                             
+                             <!-- 4列GridPane，与个人信息卡片布局对齐 -->
+                             <GridPane hgap="15" style="-fx-padding: 20;" vgap="15">
+                                 <columnConstraints>
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                     <ColumnConstraints halignment="RIGHT" minWidth="80" />
+                                     <ColumnConstraints halignment="LEFT" minWidth="200" />
+                                 </columnConstraints>
+                                <children>
+                                    
+                                    <!-- 第一行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="学院:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <Label fx:id="studentCollege" style="-fx-text-fill: #2c3e50;" text="计算机学院" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="专业:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                    <Label fx:id="studentMajor" style="-fx-text-fill: #2c3e50;" text="计算机科学与技术" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                    
+                                    <!-- 第二行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="班级:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <Label fx:id="studentClass" style="-fx-text-fill: #2c3e50;" text="计科2301班" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="入学年份:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="admissionYear" style="-fx-text-fill: #2c3e50;" text="2023年" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    
+                                    <!-- 第三行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="学制:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <Label fx:id="educationSystem" style="-fx-text-fill: #2c3e50;" text="4年" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="学籍状态:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label fx:id="studentStatus" style="-fx-text-fill: #28a745; -fx-font-weight: bold;" text="正常" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    
+                                    <!-- 第四行 -->
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="培养层次:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                    <Label fx:id="educationLevel" style="-fx-text-fill: #2c3e50;" text="本科" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    
+                                    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="预计毕业时间:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Label fx:id="graduationTime" style="-fx-text-fill: #2c3e50;" text="2027年6月" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                </children>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                             </GridPane>
+                        </children>
+                      </VBox>
+                      
+                      <!-- 卡片3：学业信息（青色顶栏，区分主题；含GPA+成绩表格+成绩分布图表） -->
+                      <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                         <children>
+                             <HBox style="-fx-background-color: #17a2b8; -fx-background-radius: 10 10 0 0; -fx-padding: 15;">
+                                <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="学业信息（成绩与GPA）" />
+                                </children>
+                             </HBox>
+                             
+                             <VBox spacing="15" style="-fx-padding: 20;">
+                                <children>
+                                    <!-- 上部分：核心学业指标（GPA、总学分等） -->
+                                    <GridPane hgap="15" style="-fx-padding: 0 0 15 0; -fx-border-color: #eee; -fx-border-width: 0 0 1 0;" vgap="10">
+                                        <columnConstraints>
+                                            <ColumnConstraints halignment="RIGHT" minWidth="100" />
+                                            <ColumnConstraints halignment="LEFT" minWidth="120" />
+                                            <ColumnConstraints halignment="RIGHT" minWidth="100" />
+                                            <ColumnConstraints halignment="LEFT" minWidth="120" />
+                                        </columnConstraints>
+                                       <children>
+                                           
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="累计GPA:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                           <Label fx:id="totalGPA" style="-fx-text-fill: #17a2b8; -fx-font-size: 16px; -fx-font-weight: bold;" text="3.85" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                           
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="总学分:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                           <Label fx:id="totalCredits" style="-fx-text-fill: #2c3e50;" text="140" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                           
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="已修学分:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                           <Label fx:id="completedCredits" style="-fx-text-fill: #2c3e50;" text="98" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                           
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="平均成绩:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                           <Label fx:id="avgScore" style="-fx-text-fill: #17a2b8; -fx-font-size: 16px; -fx-font-weight: bold;" text="89.5" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                       </children>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                                    </GridPane>
+                                    
+                                    <!-- 中部分：各科成绩表格 -->
+                                    <VBox spacing="10">
+                                       <children>
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="课程成绩" />
+                                           <TableView fx:id="courseScoreTable" prefHeight="200" style="-fx-background-radius: 5;">
+                                               <columns>
+                                               	<TableColumn prefWidth="100" text="学年" />
+                                                   <TableColumn prefWidth="100" text="课程代码" />
+                                                   <TableColumn prefWidth="180" text="课程名称" />
+                                                   <TableColumn prefWidth="60" text="学分" />
+                                                   <TableColumn prefWidth="60" text="成绩" />
+                                                   <TableColumn prefWidth="60" text="绩点" />
+                                                   <TableColumn prefWidth="100" text="考核方式" />
+                                               </columns>
+                                           </TableView>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <!-- 下部分：成绩分布图表（柱状图，替代原宿舍评分折线图，适配学业数据） -->
+                                    <VBox spacing="10">
+                                       <children>
+                                           <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="成绩分布统计" />
+                                           <BarChart fx:id="scoreDistChart" prefHeight="200">
+                                               <xAxis>
+                                                   <CategoryAxis label="分数段" /> <!-- X轴：分数段（60以下、60-70等） -->
+                                               </xAxis>
+                                               <yAxis>
+                                                   <NumberAxis label="课程数量" lowerBound="0" tickUnit="1" upperBound="10" /> <!-- Y轴：课程数量 -->
+                                               </yAxis>
+                                           </BarChart>
+                                       </children>
+                                    </VBox>
+                                </children>
+                             </VBox>
+                         </children>
+                      </VBox>
+                  </children>
+                   
+               </VBox>
+           </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

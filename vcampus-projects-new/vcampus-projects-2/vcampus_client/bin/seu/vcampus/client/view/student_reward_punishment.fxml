@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_status.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentRewardPunishmentController" >
+   <content>
+   	  <!-- 最外层的VBox容器 -->
+      <VBox prefHeight="600.0" styleClass="background">
+         <children>
+            
+            <!-- 成绩列表卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="奖罚列表" />
+                     </children>
+                  </HBox>
+                                    <!-- 加载提示 -->
+                  <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+                     <children>
+                        <!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                        <Label fx:id="loadingLabel" text="加载中..." visible="false">
+                           <graphic>
+                              <ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                        <Label fx:id="errorLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="rewardPunishmentList" prefHeight="200.0" prefWidth="200.0" styleClass="my-table-view">
+                    <columns>
+                      <TableColumn fx:id="typeCol" text="类型" />
+                      <TableColumn fx:id="titleCol" text="名称" />
+                      <TableColumn fx:id="reasonCol" prefWidth="223.0" text="原因" />
+                      <TableColumn fx:id="awardingOrganizationCol" prefWidth="107.0" text="颁发单位" />
+                      <TableColumn fx:id="effectiveDateCol" prefWidth="130.0" text="生效日期" />
+                      <TableColumn fx:id="statusCol" prefWidth="87.0" text="状态" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            
+         </children></VBox>
+   </content>
+</ScrollPane>

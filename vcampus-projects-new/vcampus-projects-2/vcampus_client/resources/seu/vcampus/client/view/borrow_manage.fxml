@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<!-- 借阅管理页面：显示已借阅书籍信息及续借功能（不含索书号） -->
+<BorderPane prefHeight="600" prefWidth="1000" 
+            xmlns="http://javafx.com/javafx/8" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            style="-fx-background-color: #f5f7fa;"
+            fx:controller="seu.vcampus.client.controller.BorrowManageController">
+    
+    <!-- 顶部标题区域 -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15 20;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="我的借阅管理" />
+            <Label style="-fx-text-fill: #bdc3c7; -fx-font-size: 13px; -fx-margin-top: 5px;" text="查看和管理您当前借阅的书籍" />
+        </VBox>
+    </top>
+    
+    <!-- 中央内容区域 -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-width: 0;">
+            <content>
+                <VBox style="-fx-padding: 20; -fx-spacing: 15; -fx-background-color: #f5f7fa;">
+                    
+                    <!-- 借阅统计卡片 -->
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-pref-width: 200;">
+                            <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;" text="总借阅数" />
+                            <Label fx:id="totalBorrowLabel" style="-fx-text-fill: #2c3e50; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        </VBox>
+                        
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-pref-width: 200;">
+                            <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;" text="即将到期" />
+                            <Label fx:id="expiringSoonLabel" style="-fx-text-fill: #e67e22; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        </VBox>
+                        
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-pref-width: 200;">
+                            <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;" text="已逾期" />
+                            <Label fx:id="overdueLabel" style="-fx-text-fill: #e74c3c; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        </VBox>
+                    </HBox>
+                    
+                    <!-- 借阅列表表格 -->
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                        <!-- 表格标题 -->
+                        <HBox style="-fx-background-color: #34495e; -fx-background-radius: 8 8 0 0; -fx-padding: 12 20;">
+                            <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="借阅书籍列表" />
+                        </HBox>
+                        
+                        <!-- 表格内容（已移除索书号列） -->
+                        <TableView fx:id="borrowTable" prefHeight="400" style="-fx-border-width: 0;">
+                            <columns>
+                                <!-- 书籍信息列（调整宽度以适应布局） -->
+                                <TableColumn fx:id="titleColumn" prefWidth="150" text="书名" />
+                                <TableColumn fx:id="authorColumn" prefWidth="100" text="作者" />
+                                <TableColumn fx:id="publisherColumn" prefWidth="150" text="出版社" />
+                                
+                                <!-- 借阅信息列 -->
+                                <TableColumn fx:id="borrowDateColumn" prefWidth="100" text="借阅时间" />
+                                <TableColumn fx:id="dueDateColumn" prefWidth="100" text="应还时间" />
+                                <TableColumn fx:id="statusColumn" prefWidth="80" text="状态" />
+                                
+                                <!-- 续借次数列 -->
+                                <TableColumn fx:id="renewCountColumn" prefWidth="80" text="续借次数" />
+                                
+                                <!-- 操作列 -->
+                                <TableColumn fx:id="renewColumn" prefWidth="100" text="操作" />
+                            </columns>
+                            
+                            <!-- 空数据提示 -->
+                            <placeholder>
+                                <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 14px; -fx-padding: 20;" 
+                                       text="暂无借阅记录" />
+                            </placeholder>
+                        </TableView>
+                    </VBox>
+                    
+                    <!-- 分页控件 -->
+                    <HBox alignment="CENTER" spacing="15" style="-fx-padding: 10 0;">
+                        <Button fx:id="firstPageBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 4 12;" text="首页" />
+                        <Button fx:id="prevPageBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 4 12;" text="上一页" />
+                        <Label fx:id="pageInfoLabel" style="-fx-text-fill: #34495e; -fx-font-size: 14px;" text="第 1 页 / 共 0 页" />
+                        <Button fx:id="nextPageBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 4 12;" text="下一页" />
+                        <Button fx:id="lastPageBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 4 12;" text="末页" />
+                        
+                        <Label style="-fx-text-fill: #3498db; -fx-font-size: 14px;" text="每页显示:" />
+                        <ComboBox fx:id="pageSizeCombo" prefWidth="80" style="-fx-background-radius: 4;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <Integer fx:value="5" />
+                                    <Integer fx:value="10" />
+                                    <Integer fx:value="15" />
+                                </FXCollections>
+                            </items>
+                            <value><Integer fx:value="10" /></value>
+                        </ComboBox>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

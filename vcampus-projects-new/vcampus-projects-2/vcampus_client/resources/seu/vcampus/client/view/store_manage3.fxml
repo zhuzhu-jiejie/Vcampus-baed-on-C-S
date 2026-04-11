@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../css/store_manage3.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1"
+ fx:controller="seu.vcampus.client.controller.StoreManage3Controller">
+    <top>
+        <!-- 顶部标题和筛选区域 -->
+        <VBox spacing="0" styleClass="header">
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 20;">
+                <Label styleClass="header-title" text="财务报表" />
+            </HBox>
+            
+            <!-- 筛选工具栏 -->
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="toolbar">
+                <Label styleClass="toolbar-label" text="时间范围:" />
+                <ComboBox fx:id="timeRangeCombo" promptText="选择时间范围" />
+                <Label styleClass="toolbar-label" text="从:" />
+                <DatePicker fx:id="startDatePicker" />
+                <Label styleClass="toolbar-label" text="到:" />
+                <DatePicker fx:id="endDatePicker" />
+                <Button mnemonicParsing="false" onAction="#handleGenerateReport" styleClass="filter-button" text="生成报表" />
+                <Button mnemonicParsing="false" onAction="#handleExport" styleClass="filter-button" text="导出Excel" />
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="20" style="-fx-padding: 20;">
+                <!-- 销售概览卡片 -->
+                <HBox spacing="20" alignment="TOP_CENTER">
+                    <VBox styleClass="financial-card" prefWidth="280">
+                        <Label styleClass="financial-card-title" text="总销售额" />
+                        <Label fx:id="totalSalesLabel" styleClass="financial-card-value" text="¥0.00" />
+                    </VBox>
+                    
+                    <VBox styleClass="financial-card" prefWidth="280">
+                        <Label styleClass="financial-card-title" text="订单数量" />
+                        <Label fx:id="totalOrdersLabel" styleClass="financial-card-value" text="0" />
+                    </VBox>
+                    
+                    <VBox styleClass="financial-card" prefWidth="280">
+                        <Label styleClass="financial-card-title" text="平均订单价值" />
+                        <Label fx:id="avgOrderValueLabel" styleClass="financial-card-value" text="¥0.00" />
+                    </VBox>
+                    
+                    <VBox styleClass="financial-card" prefWidth="280">
+                        <Label styleClass="financial-card-title" text="热门商品" />
+                        <Label fx:id="topProductLabel" style="-fx-text-fill: #2c3e50; -fx-font-size: 18; -fx-font-weight: bold; -fx-wrap-text: true;" text="暂无数据" />
+                    </VBox>
+                </HBox>
+                
+                <Separator styleClass="separator" />
+                
+                <!-- 销售趋势图表 -->
+                <VBox spacing="10">
+                    <Label styleClass="chart-title" text="销售趋势" />
+                    <BarChart fx:id="salesChart" styleClass="chart-container">
+                        <xAxis>
+                            <CategoryAxis label="日期" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="销售额 (¥)" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+                
+                <Separator styleClass="separator" />
+                
+                <!-- 商品销售排行 -->
+                <VBox spacing="10">
+                    <Label styleClass="chart-title" text="商品销售排行" />
+                    <TableView fx:id="productRankingTable" styleClass="table-view">
+                        <columns>
+                            <TableColumn text="排名" />
+                            <TableColumn text="商品名称" />
+                            <TableColumn text="销售量" />
+                            <TableColumn text="销售额" />
+                            <TableColumn text="占比" />
+                        </columns>
+                    </TableView>
+                </VBox>
+                
+                <Separator styleClass="separator" />
+                
+                <!-- 分类销售占比 -->
+                <HBox spacing="20" alignment="TOP_CENTER">
+                    <VBox spacing="10" prefWidth="500">
+                        <Label styleClass="chart-title" text="分类销售占比" />
+                        <PieChart fx:id="categoryPieChart" styleClass="chart-container" />
+                    </VBox>
+                    
+                    <VBox spacing="10" prefWidth="500">
+                        <Label styleClass="chart-title" text="支付方式分布" />
+                        <PieChart fx:id="paymentPieChart" styleClass="chart-container" />
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

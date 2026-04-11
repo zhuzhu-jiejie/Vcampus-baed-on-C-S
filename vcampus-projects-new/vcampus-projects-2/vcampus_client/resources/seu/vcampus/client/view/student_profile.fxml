@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/student_status.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.StudentProfileController">
+   <content>
+   	  <!-- 最外层的VBox容器 -->
+      <VBox prefHeight="600.0" styleClass="background"> <!-- 像这种长度比较短的 需要prefHeight -->
+         <children>
+         
+         	<!-- 个人基本信息卡片 -->
+            <VBox styleClass="card-background"> <!-- 使用默认的左上角alignment -->
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="个人基本信息" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="info-key-text" text="姓名：" GridPane.columnIndex="0" />
+                        <Label styleClass="info-key-text" text="学号：" GridPane.columnIndex="2" />
+                        <Label fx:id="name" styleClass="info-value-text" text="" GridPane.columnIndex="1" />
+                        <Label fx:id="studentId" styleClass="info-value-text" text="" GridPane.columnIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            
+            <!-- 学业归属信息卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="学籍归属信息" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="info-key-text" text="学院：" GridPane.halignment="RIGHT" />
+                        <Label styleClass="info-key-text" text="班级：" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="辅导员：" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                        <Label styleClass="info-key-text" text="专业：" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                        <Label styleClass="info-key-text" text="导师：" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <Label fx:id="college" styleClass="info-value-text" text="" GridPane.columnIndex="1" />
+                        <Label fx:id="classId" styleClass="info-value-text" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="counsellor" styleClass="info-value-text" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="major" styleClass="info-value-text" text="" GridPane.columnIndex="3" />
+                        <Label fx:id="mentor" styleClass="info-value-text" text="" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            
+            <!-- 学籍状态信息卡片 -->
+            <VBox styleClass="card-background">
+               <children>
+                  <HBox styleClass="card-title-bar">
+                     <children>
+                        <Label styleClass="card-title" text="学籍状态信息" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="5" style="-fx-padding: 5;" vgap="1">
+                     <children>
+                        <Label styleClass="info-key-text" text="培养层级：" />
+                        <Label styleClass="info-key-text" text="学籍状态：" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="入学日期：" GridPane.rowIndex="2" />
+                        <Label styleClass="info-key-text" text="学制：" GridPane.columnIndex="2" />
+                        <Label styleClass="info-key-text" text="就读年级：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="levelOfStudy" styleClass="info-value-text" text="" GridPane.columnIndex="1" />
+                        <Label fx:id="studentStatus" styleClass="info-value-text" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="admissionDate" styleClass="info-value-text" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="duration" styleClass="info-value-text" text="" GridPane.columnIndex="3" />
+                        <Label fx:id="grade" styleClass="info-value-text" text="" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label styleClass="info-key-text" text="预期毕业日期：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="expectedGraduationDate" styleClass="info-value-text" text="" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="119.5" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300" minWidth="10.0" prefWidth="239.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            
+                              <!-- 加载提示 -->
+            <HBox alignment="CENTER" prefHeight="30.0" spacing="10.0" style="-fx-padding: 0 5 5 5;">
+               	<children>
+					<!-- 加载提示：初始隐藏，显示时用旋转图标增强视觉效果 -->
+                   	<Label fx:id="loadingLabel" text="加载中..." visible="false">
+                     	<graphic>
+                         	<ProgressIndicator prefHeight="16.0" prefWidth="16.0" style="-fx-progress-color: #2196f3;" />
+                       	</graphic>
+                        <HBox.margin>
+                        	<Insets right="5.0" />
+                       	</HBox.margin>
+                   	</Label>
+                        <!-- 错误/成功提示：初始隐藏，红色=错误，绿色=成功 -->
+                    <Label fx:id="errorLabel" style="-fx-text-fill: #d32f2f; -fx-font-size: 13px;" text="" visible="false" />
+              	</children>
+          	</HBox>
+            
+         </children></VBox>
+   </content>
+</ScrollPane>

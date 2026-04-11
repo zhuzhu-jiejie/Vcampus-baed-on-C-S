@@ -1,0 +1,56 @@
+/* 全局样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: transparent; /* 改为透明背景，适应主界面 */
+}
+
+/* 按钮样式 */
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+}
+
+/* 标签样式 */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* 文本区域样式 */
+.text-area {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #bdc3c7;
+    -fx-padding: 8;
+}
+
+.text-area:focused {
+    -fx-border-color: #c4a8ff;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 10, 0, 0, 0);
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}

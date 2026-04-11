@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../css/order_history.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="seu.vcampus.client.controller.OrderHistoryController">
+    <top>
+        <!-- 顶部标题栏 -->
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: bold;" text="我的订单" />
+            <Label fx:id="ordersCount" style="-fx-text-fill: #3498db; -fx-font-size: 16; -fx-padding: 0 0 0 20;" text="0个订单" />
+        </HBox>
+    </top>
+    
+    <center>
+        <!-- 订单列表区域 -->
+        <ScrollPane fitToWidth="true" style="-fx-background: #f5f7fa;">
+            <VBox fx:id="ordersContainer" spacing="15" style="-fx-padding: 20;" />
+        </ScrollPane>
+    </center>
+    
+    <bottom>
+        <!-- 底部筛选栏 -->
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, -2);">
+            <Label style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;" text="筛选:" />
+            <Button mnemonicParsing="false" onAction="#handleFilterOrders" style="-fx-filter-button;" text="全部订单" />
+            <Button mnemonicParsing="false" onAction="#handleFilterOrders" style="-fx-filter-button;" text="待付款" />
+            <Button mnemonicParsing="false" onAction="#handleFilterOrders" style="-fx-filter-button;" text="待发货" />
+            <Button mnemonicParsing="false" onAction="#handleFilterOrders" style="-fx-filter-button;" text="已发货" />
+            <Button mnemonicParsing="false" onAction="#handleFilterOrders" style="-fx-filter-button;" text="已完成" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,161 @@
+/* 全局样式 */
+.root {
+    -fx-font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* 搜索框样式 */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 15;
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-border-color: transparent;
+}
+
+.text-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-border-color: #3498db;
+}
+
+/* 筛选按钮样式 */
+.filter-button {
+    -fx-cursor: hand;
+    -fx-background-radius: 20;
+    -fx-padding: 8 15;
+    -fx-font-size: 12;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: white;
+    -fx-transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-button:selected {
+    -fx-background-color: #3498db;
+}
+
+/* 交易记录卡片样式 */
+.transaction-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+.transaction-header {
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 10 0;
+}
+
+.transaction-id {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.transaction-date {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12;
+}
+
+.transaction-amount {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+.amount-income {
+    -fx-text-fill: #2ecc71;
+}
+
+.amount-expense {
+    -fx-text-fill: #e74c3c;
+}
+
+.transaction-type {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+}
+
+.type-payment {
+    -fx-background-color: #3498db;
+}
+
+.type-refund {
+    -fx-background-color: #2ecc71;
+}
+
+.type-recharge {
+    -fx-background-color: #9b59b6;
+}
+
+.type-withdraw {
+    -fx-background-color: #e74c3c;
+}
+
+.transaction-detail {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14;
+}
+
+.transaction-status {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+}
+
+.status-success {
+    -fx-background-color: #2ecc71;
+}
+
+.status-pending {
+    -fx-background-color: #f39c12;
+}
+
+.status-failed {
+    -fx-background-color: #e74c3c;
+}
+
+.empty-transactions {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 40;
+    -fx-alignment: CENTER;
+}
+
+.empty-transactions-label {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 18;
+}
+
+/* 滚动条样式 */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6;
+}

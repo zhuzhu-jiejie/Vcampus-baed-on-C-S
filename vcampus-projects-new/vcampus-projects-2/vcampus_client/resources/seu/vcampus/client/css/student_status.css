@@ -1,0 +1,556 @@
+
+/* --------------------- 一、 Scrollpane 整体容器 --------------------- */
+/* 背景设置 */
+.scroll-pane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+	-fx-background-color: transparent; /* 如果没有 会自带一个黑边边 */
+	/* JavaFX 中 控件被点击的时候自带焦点环 */
+}
+
+/* 垂直滚动条 */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 2px 0 2px; /* 两侧留出空间 */
+}
+
+/* 水平滚动条 */
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 2px 0 2px 0; /* 上下留出空间 */
+}
+
+/* 滚动条轨道 */
+.scroll-pane .scroll-bar .track {
+    -fx-background-color: rgba(211, 211, 211, 0.1);
+    -fx-background-radius: 10px; /* 圆角轨道 */
+}
+
+/* 滚动条滑块 */
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #85bff3; /* 主色调蓝色 */
+    -fx-background-radius: 10px; /* 圆角滑块 */
+    -fx-background-insets: 2px; /* 内边距 */
+    -fx-transition: all 0.3s ease; /* 平滑过渡 */
+}
+
+/* 悬停时滑块效果 */
+.scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #2586e3;
+}
+
+/* 按下时滑块效果 */
+.scroll-pane .scroll-bar .thumb:pressed {
+    -fx-background-color: #3c96ef;
+}
+
+/* 滚动条增减按钮 */
+.scroll-pane .scroll-bar .increment-button,
+.scroll-pane .scroll-bar .decrement-button {
+    -fx-background-color: transparent; /* 透明背景 */
+    -fx-padding: 0; /* 无内边距 */
+    -fx-shape: ""; /* 移除默认形状 */
+}
+
+/* 滚动条箭头 */
+.scroll-pane .scroll-bar .increment-arrow,
+.scroll-pane .scroll-bar .decrement-arrow {
+    -fx-background-color: transparent; /* 透明背景 */
+    -fx-shape: ""; /* 移除默认箭头 */
+}
+
+/* 角落区域 */
+.scroll-pane .corner {
+    -fx-background-color: transparent; /* 透明背景 */
+}
+
+/* 可选：内容区域样式 */
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* 透明背景 */
+}
+
+/* --------------------- 二、 VBox 背景容器 --------------------- */
+.background {
+	-fx-background-color: linear-gradient(to right, #d9e3f8, #d0e7f6);
+	-fx-padding: 30px;
+	-fx-spacing: 20px;
+	-fx-border-color: transparent;
+}
+
+
+/* --------------------- 三、 VBox 小卡片 --------------------- */
+.card-background {
+	-fx-background-color: #fdfdff; 
+	-fx-background-radius: 8; 
+	-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+	-fx-border-color: transparent; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 1px;
+	-fx-border-radius: 8;
+	-fx-padding: 0 0 10px 0;
+}
+
+.card-background:hover {
+    -fx-border-color: #a7cdf5;
+	/* -fx-cursor: hand; 如果需要可交互卡片 可以使用这个功能 */
+}
+
+/* 卡片悬停时内部标题变蓝 */
+.card-background:hover .card-title {
+    -fx-text-fill: #3498db;
+}
+
+/* --------------------- 四、 HBox 卡片标题栏 --------------------- */
+.card-title-bar {
+	-fx-background-color: #fdfdff; /* #3498db */
+	-fx-background-radius: 8 8 0 0; 
+	-fx-padding: 15px 0 5px 15px;
+}
+
+/* --------------------- 五、 label 标题栏字体 --------------------- */
+.card-title {
+	-fx-text-fill: #333e48;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+}
+
+/* --------------------- 六、 label 信息属性字体 --------------------- */
+.info-key-text {
+	-fx-text-fill: #34495e;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+}
+
+/* --------------------- 七、 label 信息值字体 --------------------- */
+.info-value-text {
+	-fx-text-fill: #34495e;
+	-fx-font-size: 13px;
+}
+
+/* --------------------- 八、 ComboBox 下拉栏 --------------------- */
+/* 基础样式 - 整体容器 */
+.my-combo-box {
+	-fx-min-height: 30px;
+	-fx-max-height: 30px;
+	-fx-pref-width: 150px;
+	-fx-max-width: 150px;
+	
+    -fx-border-color: #85bff3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+    -fx-background-color: #fdfdff;
+    -fx-padding: 2px;
+    -fx-font-size: 13px;
+}
+
+/* 悬停状态 - 整体背景变化 */
+.my-combo-box:hover {
+    -fx-background-color: #e3f0fd;
+}
+
+/* 下拉箭头按钮样式 */
+.my-combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 8px; /* 防止太靠右边 */
+}
+
+/* 下拉箭头图标样式 */
+.my-combo-box .arrow {
+    /*-fx-background-color: #73abe3;*/
+    -fx-shape: "M512 834.1504a106.2912 106.2912 0 0 1-73.3184-29.2864L67.9936 493.7728a46.4896 46.4896 0 0 1 59.8016-71.2704L502.784 737.28a12.9024 12.9024 0 0 0 18.432 0l3.072-2.6624 371.9168-312.1152a46.4896 46.4896 0 0 1 59.8016 71.2704L585.3184 804.864A106.2912 106.2912 0 0 1 512 834.1504z";
+    -fx-min-width: 15px;
+    -fx-min-height: 8px;
+	-fx-scale-x: 0.7;
+	-fx-scale-y: 0.7;
+}
+
+/* 悬停时箭头颜色变化 */
+.my-combo-box:hover .arrow {
+    -fx-background-color: #4d9deb;
+}
+
+/*-- 这后面 等combobox有选项的时候再查看、设置 --*/
+
+/* 输入框部分样式（ComboBox内部的TextField） */
+.my-combo-box .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+	-fx-border-radius: 5px;
+    -fx-padding: 4px 6px;
+    -fx-prompt-text-fill: #999;
+}
+
+/* 下拉弹出列表样式 */
+.my-combo-box .combo-box-popup .list-view {
+    -fx-background-color: #fdfdff;
+    -fx-border-color: #499ae8;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+    -fx-padding: 4px 0;
+}
+
+/* 下拉列表项样式 */
+.my-combo-box .combo-box-popup .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 8px 16px;
+	-fx-text-fill: #333e48;
+}
+
+/* 列表项悬停样式 */
+.my-combo-box .combo-box-popup .list-cell:hover {
+    -fx-background-color: #eef6fe;
+}
+
+/* 列表项选中样式 */
+.my-combo-box .combo-box-popup .list-cell:selected {
+    -fx-background-color: #d0e7f6;
+    -fx-text-fill: #116ecd;
+}
+
+/* 禁用状态样式 */
+.my-combo-box:disabled {
+    -fx-border-color: #ddd;
+    -fx-background-color: #f5f5f5;
+    -fx-opacity: 0.7;
+}
+
+/* --------------------- 九、 TableView 整体容器 --------------------- */
+.my-table-view {
+	-fx-focus-color: transparent;        /* 焦点环主色设为透明 */
+	-fx-faint-focus-color: transparent;  /* 焦点环淡色设为透明 */
+	/*-fx-margin: 5px; 请自行在fx设置 使得左右两边由5px的margin 因为这个tableview是放在card-background里的 所以不要贴边 */
+	-fx-background-insets: 0;  /* 消除点击时的白边 */
+    -fx-background-color: #fdfdff;       /* 与卡片背景一致 */
+    -fx-background-radius: 8px;          /* 统一圆角 */
+    -fx-border-color: #85bff3;           /* 主色调边框 */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 2);  卡片级阴影 感觉没必要 */
+    -fx-padding: 0; /* 内部组件自行处理内边距 */
+}
+
+/* 下拉箭头图标样式 这是我自己添加的*/
+.my-table-view .arrow {
+    /*-fx-background-color: #73abe3;*/
+    -fx-shape: "M512 834.1504a106.2912 106.2912 0 0 1-73.3184-29.2864L67.9936 493.7728a46.4896 46.4896 0 0 1 59.8016-71.2704L502.784 737.28a12.9024 12.9024 0 0 0 18.432 0l3.072-2.6624 371.9168-312.1152a46.4896 46.4896 0 0 1 59.8016 71.2704L585.3184 804.864A106.2912 106.2912 0 0 1 512 834.1504z";
+    -fx-min-width: 15px;
+    -fx-min-height: 8px;
+	-fx-scale-x: 0.7;
+	-fx-scale-y: 0.7;
+}
+
+/* 表头右侧填充区域（列宽不足时的空白区） */
+.my-table-view .column-header-background .filler {
+    -fx-background-color: #fdfdff; /* 与表头背景色一致 */
+    -fx-background-radius: 0 8px 0 0; /* 匹配 TableView 右上角圆角 */
+}
+
+/* 列头区域 */
+.my-table-view .column-header-background {
+    -fx-background-color: #fdfdff;       /* 与卡片标题栏背景一致 */
+    -fx-background-radius: 8px 8px 0 0; /* 仅顶部圆角 */
+    -fx-padding: 0;
+}
+
+.my-table-view .column-header {
+    -fx-background-color: transparent;   /* 透明背景，继承上方区域 */
+    -fx-border-width: 0 1px 1px 0;       /* 底部和右侧分隔线 */
+    -fx-border-color: #e0e0e0;           /* 浅灰色分隔线 */
+}
+
+.my-table-view .column-header .label {
+    -fx-text-fill: #333e48;              /* 与卡片标题文字色一致 */
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;          /* 文字左对齐（可根据需求调整） */
+    -fx-padding: 5px 10px;
+}
+
+/* 数据行与单元格 */
+.my-table-view .table-row-cell {
+    -fx-background-color: transparent;   /* 透明背景， hover/selected 时再变化 */
+    -fx-padding: 8px 0;
+    -fx-border-width: 0 0 1px 0;         /* 底部分隔线 */
+    -fx-border-color: #f0f0f0;           /* 极浅分隔线 */
+}
+
+.my-table-view .table-row-cell:hover {
+    -fx-background-color: #e3f0fd;       /* 与 ComboBox 悬停色一致 */
+    -fx-cursor: hand;
+}
+
+.my-table-view .table-row-cell:selected {
+    -fx-background-color: #d0e7f6;       /* 与 ComboBox 选中色一致 */
+    -fx-text-fill: #116ecd;              /* 选中时文字色（主题蓝） */
+}
+
+.my-table-view .table-cell {
+    -fx-text-fill: #34495e;              /* 与信息文字色一致 */
+    -fx-font-size: 13px;
+    -fx-alignment: center-left;          /* 文字左对齐（可根据需求调整） */
+    -fx-padding: 5px 10px;
+    -fx-border-width: 0;                 /* 移除默认单元格边框 */
+}
+
+/* 滚动条（复用 ScrollPane 样式） */
+.my-table-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 2px 0 2px;
+}
+
+.my-table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 2px 0 2px 0;
+}
+
+.my-table-view .scroll-bar .track {
+    -fx-background-color: rgba(211, 211, 211, 0.1);
+    -fx-background-radius: 10px;
+}
+
+.my-table-view .scroll-bar .thumb {
+    -fx-background-color: #85bff3;
+    -fx-background-radius: 10px;
+    -fx-background-insets: 2px;
+    -fx-transition: all 0.3s ease;
+}
+
+.my-table-view .scroll-bar .thumb:hover {
+    -fx-background-color: #2586e3;
+}
+
+.my-table-view .scroll-bar .thumb:pressed {
+    -fx-background-color: #3c96ef;
+}
+
+.my-table-view .scroll-bar .increment-button,
+.my-table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.my-table-view .scroll-bar .increment-arrow,
+.my-table-view .scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-shape: "";
+}
+
+.my-table-view .corner {
+    -fx-background-color: transparent;
+}
+
+/* --------------------- 九、 Button 按钮样式 --------------------- */
+
+.my-button {
+	-fx-min-height: 30px;
+	-fx-max-height:30px;
+	-fx-pref-width: 150px;
+	-fx-max-width: 150px;
+	
+    -fx-border-color: #85bff3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+    -fx-background-color: #fdfdff;
+    -fx-padding: 2px;
+    -fx-font-size: 13px;
+}
+
+/* 悬停状态 - 整体背景变化 */
+.my-button:hover {
+    -fx-background-color: #e3f0fd;
+}
+
+/* --------------------- 十、 DateSelector 样式 --------------------- */
+.my-date { /*下拉之后的样式还需要设计一下*/
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+    -fx-pref-width: 150px;
+    -fx-max-width: 150px;
+    
+    -fx-border-color: #85bff3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #fdfdff;
+    -fx-padding: 0; /* 移除内边距，避免组件内部间隙 */
+    -fx-font-size: 13px;
+}
+
+/* 悬停状态 - 整体背景统一变化 */
+.my-date:hover {
+    -fx-background-color: #e3f0fd;
+}
+
+/* 修复中间输入区域悬浮白色问题 */
+.my-date .text-field {
+    -fx-background-color: transparent; /* 完全透明，继承父组件背景 */
+    -fx-border-width: 0; /* 移除输入框自带边框 */
+    -fx-padding: 0 5px; /* 仅保留左右内边距，避免文字贴边 */
+}
+
+/* 右侧选择按钮样式（透明背景） */
+.my-date .arrow-button {
+    -fx-background-color: transparent; /* 按钮背景完全透明 */
+    -fx-border-width: 0; /* 移除按钮边框 */
+    -fx-padding: 0 9px; /* 调整按钮内边距，让图标居中 */
+}
+
+/* 选择按钮内的图标样式（仅保留形状） */
+.my-date .arrow-button .arrow {
+    -fx-background-color: #73abe3; /* 默认图标颜色 */
+    -fx-shape: "M378.857631 467.61921l-88.76158 0 0 88.76158 88.76158 0L378.857631 467.61921zM556.38079 467.61921l-88.76158 0 0 88.76158 88.76158 0L556.38079 467.61921zM733.903949 467.61921l-88.76158 0 0 88.76158 88.76158 0L733.903949 467.61921zM822.665529 156.952658l-44.38079 0 0-88.76158-88.76158 0 0 88.76158L334.475817 156.952658l0-88.76158-88.76158 0 0 88.76158-44.38079 0c-49.262984 0-88.317465 39.942711-88.317465 88.76158l-0.444115 621.332081c0 48.818869 39.498596 88.76158 88.76158 88.76158l621.332081 0c48.818869 0 88.76158-39.942711 88.76158-88.76158L911.427108 245.714238C911.427108 196.895369 871.484398 156.952658 822.665529 156.952658zM822.665529 867.046319 201.333448 867.046319 201.333448 378.857631l621.332081 0L822.665529 867.046319z";
+    -fx-min-width: 15px;
+    -fx-min-height: 13px;
+    -fx-scale-x: 0.7; /* 图标缩放，与ComboBox箭头保持一致 */
+    -fx-scale-y: 0.9;
+}
+
+/* 鼠标指向图标时变色为指定蓝色 */
+.my-date .arrow-button:hover .arrow {
+    -fx-background-color: #4d9deb;
+}
+
+/* 聚焦状态优化（可选） */
+.my-date:focused {
+    -fx-border-color: #4d9deb; /* 聚焦时边框变色，增强交互反馈 */
+}
+
+/* 下拉面板整体样式 */
+.my-date .date-picker-popup {
+    -fx-background-color: #fdfdff; /* 与卡片背景一致 */
+    -fx-border-color: #85bff3;     /* 边框色与输入框统一 */
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;        /* 圆角略小于输入框 */
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2); /* 与ComboBox下拉框阴影一致 */
+    -fx-padding: 5px;              /* 面板内边距 */
+}
+
+/* 月份/年份选择栏样式 */
+.my-date .date-picker-popup .month-year-pane {
+    -fx-background-color: #f0f7fe; /* 浅蓝背景，区分内容区 */
+    -fx-background-radius: 4px;
+    -fx-padding: 8px;
+}
+
+/* 月份/年份标题文字 */
+.my-date .date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #333e48;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* 上一个/下一个按钮（月份/年份切换） */
+.my-date .date-picker-popup .month-year-pane .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #73abe3;
+    -fx-font-size: 14px;
+    -fx-padding: 2px 8px;
+    -fx-cursor: hand;
+}
+
+.my-date .date-picker-popup .month-year-pane .button:hover {
+    -fx-text-fill: #4d9deb; /* 悬停时变主题蓝 */
+    -fx-background-color: rgba(77, 157, 235, 0.1); /* 轻微背景色 */
+    -fx-background-radius: 4px;
+}
+
+/* 星期标题栏（日/一/二...） */
+.my-date .date-picker-popup .week-number-column-header,
+.my-date .date-picker-popup .day-name-cell {
+    -fx-background-color: #f0f7fe;
+    -fx-text-fill: #666;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 0;
+}
+
+/* 日期单元格基础样式 */
+.my-date .date-picker-popup .calendar-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #34495e; /* 与表格文字色一致 */
+    -fx-font-size: 13px;
+    -fx-padding: 6px 8px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+/* 日期单元格悬停效果 */
+.my-date .date-picker-popup .calendar-cell:hover {
+    -fx-background-color: #eef6fe; /* 与ComboBox列表项悬停色一致 */
+}
+
+/* 选中日期样式 */
+.my-date .date-picker-popup .calendar-cell:selected {
+    -fx-background-color: #4d9deb; /* 主题蓝 */
+    -fx-text-fill: white;
+}
+
+/* 当前日期样式（未选中时） */
+.my-date .date-picker-popup .calendar-cell:today {
+    -fx-border-color: #4d9deb;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+}
+
+/* 禁用日期样式（如过去的日期） */
+.my-date .date-picker-popup .calendar-cell:disabled {
+    -fx-text-fill: #ccc;
+    -fx-cursor: default;
+}
+
+/* 分隔线样式（如果有） */
+.my-date .date-picker-popup .separator {
+    -fx-background-color: #e0e0e0;
+    -fx-padding: 1px 0;
+}
+
+
+/* --------------------- 十一、 textarea 按钮样式 --------------------- */
+.my-textarea {
+	-fx-min-height: 30px;
+	-fx-max-height:30px;
+	-fx-pref-width: 150px;
+	-fx-max-width: 150px;
+	
+    -fx-border-color: #85bff3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+    -fx-background-color: #fdfdff;
+    -fx-padding: 2px;
+    -fx-font-size: 13px;
+}
+
+/* 悬停状态 - 整体背景变化 */
+.my-textarea:hover {
+    -fx-background-color: #e3f0fd;
+}
+
+/* --------------------- 十三、 Vbox 新的背景样式 ----------------------- */
+
+/* 用于申请表单的内容嵌入 */
+.new-background {
+	-fx-background-color: #fdfdff; 
+	/*-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);*/
+	-fx-border-color: transparent; /* 这个可以防止被选中时的跳动效果 */
+	-fx-border-width: 0px;
+	-fx-padding: 0 0 10px 0;
+}
+
+/*.new-background:hover {
+    -fx-border-color: #a7cdf5;
+	/* -fx-cursor: hand; 如果需要可交互卡片 可以使用这个功能 
+}*/
+
+/* --------------------- 十四、 Hbox 新的背景样式 ----------------------- */
+
+.card-bottom-bar {
+	-fx-background-color: #fdfdff; /* #3498db */
+	-fx-background-radius: 0 0 0 0; /*理论上是不用任何radius的*/ 
+	-fx-padding: 0 15 0 0px; /* 由于card-background规定了一些容器底层是有10px的padding以保证容器的留白*/
+	-fx-spacing: 15px;
+	/*所以这边不用留白*/
+}

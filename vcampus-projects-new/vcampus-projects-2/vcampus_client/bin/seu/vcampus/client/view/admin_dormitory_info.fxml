@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@../css/admin_dormitory_info.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.vcampus.client.controller.AdminDormitoryInfoController">
+    
+    <!-- 中央内容区域 -->
+    <center>
+        <!-- ScrollPane 同时适配宽、高 -->
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: #f5f7fa;">
+            <!-- 内部VBox：垂直排列内容，宽度自适应 ScrollPane -->
+            <VBox prefWidth="-1" spacing="20" style="-fx-padding: 20;">
+               <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 15;" styleClass="filter-panel">
+                   <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 10 0;">
+                       <Label style="-fx-text-fill: #2c3e50; -fx-font-size: 16px; -fx-font-weight: bold;" text="宿舍信息查询" />
+                   </HBox>
+                   
+                      <Separator />
+                   
+                      <GridPane hgap="15" style="-fx-padding: 15 0 0 0;" vgap="15">
+                       <columnConstraints>
+                           <!-- 按百分比分配列宽，实现横向自适应 -->
+                           <ColumnConstraints halignment="RIGHT" percentWidth="20" />
+                           <ColumnConstraints halignment="LEFT" percentWidth="30" />
+                           <ColumnConstraints halignment="RIGHT" percentWidth="20" />
+                           <ColumnConstraints halignment="LEFT" percentWidth="30" />
+                       </columnConstraints>
+                       
+                          <!-- 第一行 -->
+                       <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿舍楼:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                       <ComboBox fx:id="buildingComboBox" promptText="请选择宿舍楼" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                       
+                          <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="房间号:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                       <TextField fx:id="roomField" promptText="请输入房间号" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                       
+                          <HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                           <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="查询" />
+                           <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleReset" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;" text="重置" />
+                       </HBox>
+                       
+                          <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                       </rowConstraints>
+                   </GridPane>
+               </VBox>
+                
+                <!-- 宿舍详情卡片 -->
+                <VBox styleClass="detail-card">
+                    <HBox style="-fx-background-color: #2ecc71; -fx-background-radius: 10 10 0 0; -fx-padding: 15;" styleClass="card-header">
+                        <Label styleClass="card-title" text="宿舍详情" />
+                    </HBox>
+                    
+                    <VBox spacing="15" style="-fx-padding: 20;">
+                        <!-- 宿舍基本信息 -->
+                        <GridPane hgap="15" vgap="15">
+                            <columnConstraints>
+                                <!-- 详情区GridPane也按百分比分配列宽 -->
+                                <ColumnConstraints halignment="RIGHT" percentWidth="10" />
+                                <ColumnConstraints halignment="LEFT" percentWidth="20" />
+                                <ColumnConstraints halignment="RIGHT" percentWidth="10" />
+                                <ColumnConstraints halignment="LEFT" percentWidth="20" />
+                                <ColumnConstraints halignment="RIGHT" percentWidth="10" />
+                                <ColumnConstraints halignment="LEFT" percentWidth="30" />
+                            </columnConstraints>
+                            
+                            <!-- 第一行 -->
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿舍楼:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label fx:id="detailBuilding" style="-fx-text-fill: #2c3e50;" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="房间号:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                            <Label fx:id="detailRoom" style="-fx-text-fill: #2c3e50;" text="" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                            
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="容纳人数:" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                            <Label fx:id="detailCapacity" style="-fx-text-fill: #2c3e50;" text="" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                            
+                            <!-- 第二行 -->
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="当前人数:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <Label fx:id="detailCurrent" style="-fx-text-fill: #2c3e50;" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="卫生平均分:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            <Label fx:id="detailScore" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;" text="" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                            
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿管员:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                            <Label fx:id="detailManager" style="-fx-text-fill: #2c3e50;" text="" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                            
+                            <rowConstraints>
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
+                        </GridPane>
+                        
+                        <Separator />
+                        
+                        <!-- 宿舍成员表格 -->
+                   <VBox spacing="20">
+    <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="宿舍成员" />
+    <!-- 使用GridPane替代TableView -->
+    <ScrollPane fitToWidth="true" minHeight="150" prefHeight="600"  style="-fx-background-color: white;"> <!-- 背景设为白色 -->
+ 
+        <GridPane fx:id="residentGrid" style="-fx-padding: 5px;">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" prefWidth="120" />
+                <ColumnConstraints minWidth="100" prefWidth="100" />
+                <ColumnConstraints minWidth="140" prefWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" />
+                <ColumnConstraints minWidth="100" prefWidth="100" />
+                <ColumnConstraints minWidth="140" prefWidth="140" />
+            </columnConstraints>
+        </GridPane>
+    </ScrollPane>
+                        </VBox>
+                        
+                        <Separator />
+                        
+                        <!-- 宿舍卫生评分图表 -->
+                        <VBox spacing="10">
+                            <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="卫生评分趋势" />
+                            <!-- LineChart：设置明确的最小高度确保显示 -->
+                            <LineChart fx:id="detailScoreChart" minHeight="200" prefWidth="-1">
+                                <xAxis>
+                                    <CategoryAxis label="日期" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis label="评分" lowerBound="60" tickUnit="5" upperBound="100" />
+                                </yAxis>
+                            </LineChart>
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER" spacing="15" style="-fx-padding: 15;">
+            <Button fx:id="exportButton" mnemonicParsing="false" onAction="#handleExport" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;" text="导出数据" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="刷新数据" />
+        </HBox>
+    </bottom>
+</BorderPane>
